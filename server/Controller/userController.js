@@ -1,7 +1,28 @@
+const User = require('../Models/UserSchema'); // Import the User model/schema
 const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
 
 const { EMAIL, PASSWORD } = require('../env.js');
+
+exports.newUser = async (req, res) => {
+    const { id,name, email, password, role } = req.body;
+
+    try {
+        // Check if the email already exists in the database
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+            return res.status(400).json({ error: 'Email already exists' });
+        }
+
+        // If email doesn't exist, proceed to create the new user
+        const newUser = await User.create({ id,name, email, password, role });
+        return res.status(201).json(newUser);
+    } catch (error) {
+        console.error('Error creating user:', error);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
 
 exports.passwordMail = async (req, res) => {
     const { userEmail,name } = req.body;
@@ -74,59 +95,5 @@ function generateDummyPassword() {
 }
 
 
-exports.sendOTP = async (req, res) => {
-    const { userEmail, OTP } = req.body;
-    console.log("in sendOTP ")
 
-    let config = {
-        service: 'gmail',
-        auth: {
-            user: EMAIL,
-            pass: PASSWORD
-        }
-    };
-
-    let transporter = nodemailer.createTransport(config);
-
-    let MailGenerator = new Mailgen({
-        theme: "default",
-        product: {
-            name: "Mailgen",
-            link: 'https://mailgen.js/'
-        }
-    });
-
-    let response = {
-        body: {
-            
-            intro: "Your One-Time Password (OTP)",
-            table: {
-                data: [
-                    {
-                        item: "OTP:",
-                        description: OTP,
-                    }
-                ]
-            },
-            outro: "Please use this OTP to verify your identity."
-        }
-    };
-
-    let mail = MailGenerator.generate(response);
-
-    let message = {
-        from: EMAIL,
-        to: userEmail,
-        subject: "One-Time Password (OTP)",
-        html: mail
-    };
-
-    transporter.sendMail(message).then(() => {
-        return res.status(201).json({
-            msg: "You should receive an email with a One-Time Password (OTP)."
-        });
-    }).catch(error => {
-        return res.status(500).json({ error });
-    });
-};
 
