@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Login.css";
+import './Login.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -33,70 +34,64 @@ function Login() {
 
   return (
     <section className="background-radial-gradient overflow-hidden">
-      <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+      <div className="container px-4 py-5 px-md-1 text-center text-lg-start my-5">
         <div className="row gx-lg-5 align-items-center mb-5">
           <div className="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: 10 }}>
-            <h1
-              className="my-5 display-5 fw-bold ls-tight"
-              style={{ color: "hsl(218, 81%, 95%)" }}
-            >
-              The best offer <br />
+            <h1 className="my-5 display-5 fw-bold ls-tight" style={{ color: "hsl(218, 81%, 95%)" }}>
+              Welcome, <br />
               <span style={{ color: "hsl(218, 81%, 75%)" }}>
-                for your business
+                Where Learning Fuels Innovation
               </span>
             </h1>
-            <p
-              className="mb-4 opacity-70"
-              style={{ color: "hsl(218, 81%, 85%)" }}
-            >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Temporibus, expedita iusto veniam atque, magni tempora mollitia
-              dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-              ab ipsum nisi dolorem modi. Quos?
-            </p>
+
           </div>
 
-          <div className="col-lg-6 mb-5 mb-lg-0 position-relative">
-            <div
-              id="radius-shape-1"
-              className="position-absolute rounded-circle shadow-5-strong"
-            ></div>
-            <div
-              id="radius-shape-2"
-              className="position-absolute shadow-5-strong"
-            ></div>
+          <div className="col-lg-5 mb-5 mb-lg-0  position-relative">
+            <div id="radius-shape-1" className="position-absolute rounded-circle shadow-5-strong "></div>
+            <div id="radius-shape-2" className="position-absolute shadow-5-strong"></div>
 
-            <div className="card bg-glass ">
-              <div className="card-body px-4 py-0 px-md-2 "></div>
-              
-              <form class="p-5 mt-0" onSubmit={loginValidate}>
-              <div class="text-center name">Log In</div>
-                <div class="form-field d-flex align-items-center">
-                  <span class="far fa-user"></span>
-                  <input
-                    type="email"
-                    name="userName"
-                    id="userName"
-                    placeholder="Username"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
+            <div className="card bg-glass">
+              <div className="card-body px-4 py-5 px-md-5">
+                <div className="text-center mb-4">
+                  <h2 className="mb-0">Log In</h2>
                 </div>
-                <div class="form-field d-flex align-items-center">
-                  <span class="fas fa-key"></span>
-                  <input
-                    type="password"
-                    name="password"
-                    id="pwd"
-                    placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-                <button type="submit" className="btn btn-primary mb-4">
-                Sign in
-              </button>
-              </form>
+                <form onSubmit={loginValidate}>
 
-              
+                  <div className="form-field d-flex align-items-center form-outline mb-4">
+                    <span class="far fa-user"></span>
+                    <input
+                      type="email"
+                      id="form3Example3"
+                      className="form-control"
+                      placeholder="Email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+
+                  </div>
+
+                  <div className="form-outline mb-4 d-flex align-items-center">
+                    <span class="fas fa-key"></span>
+                    <input
+                      type="password"
+                      id="form3Example4"
+                      className="form-control"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block mb-4 mx-auto d-block" style={{ width: '100px' }}>Log In</button>
+
+                  
+
+                    </form>
+                
+                <div class="forgot-password-link text-end" >
+                    <a href="#" style={{ color: 'red' }}>Forgot Password?</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
