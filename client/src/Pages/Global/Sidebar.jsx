@@ -66,21 +66,21 @@ const Sidebar = () => {
                 },
             }}
         >
-            <ProSidebar collapsed={isCollapsed}>
+            <ProSidebar collapsed={isCollapsed} width="250px">
                 <Menu iconShape="square">
                     {/* LOGO AND MENU ICON */}
                     <MenuItem
                         onClick={() => setIsCollapsed(!isCollapsed)}
                         icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
                         style={{
-                            margin: "10px 0 20px 0",
+                            margin: "5px 0 20px 0",
                             color: colors.grey[100],
                         }}
                     >
                         {!isCollapsed && (
                             <IconButton
                                 onClick={() => setIsCollapsed(!isCollapsed)}
-                                style={{ position: "absolute", right: "0", top: "0" }}
+                                style={{ position: "absolute",margin: "2px 4px 2px 0", right: "0", top: "0" }}
                             >
                                 <MenuOutlinedIcon />
                             </IconButton>
@@ -109,7 +109,7 @@ const Sidebar = () => {
 
 
                     )}
-                    <Box paddingLeft={isCollapsed ? undefined : "10%"}>
+                    <Box paddingLeft={isCollapsed ? undefined : "8%"}>
                         <Item
                             title="Dashboard"
                             to="/"
@@ -157,7 +157,7 @@ const Sidebar = () => {
                         {role === 'Admin' && (
                             <Item
                                 title="Users"
-                                to="/training"
+                                to="/users"
                                 icon={<PeopleOutlinedIcon />}
                                 selected={selected}
                                 setSelected={setSelected}
