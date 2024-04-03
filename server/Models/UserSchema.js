@@ -23,6 +23,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     enum: ['intern', 'employee', 'admin'],
     required: true
+  },
+  Designation:{
+    type: String,
   }
 }, { timestamps: true }); // Add timestamps for createdAt and updatedAt fields
 
