@@ -8,10 +8,9 @@ const CoeSchema = new mongoose.Schema({
     required: true
   },
   description: String,
-  // Programs associated with this COE
-  trainerId:  [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+  coeHead:[{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'trainer'
   }]
 });
 

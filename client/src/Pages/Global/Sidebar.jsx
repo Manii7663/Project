@@ -166,7 +166,7 @@ const Sidebar = () => {
                         {role === 'Admin' && (
                             <Item
                                 title="Trainings"
-                                to="/training"
+                                to="/trainings"
                                 icon={<PeopleOutlinedIcon />}
                                 selected={selected}
                                 setSelected={setSelected}

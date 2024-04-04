@@ -3,6 +3,9 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import Topbar from "./Pages/Global/Topbar";
 import Sidebar from "./Pages/Global/Sidebar";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Home from "./Pages/Home";
+import Users from "./Pages/Users/users";
+import Trainings from "./Pages/Trainings/trainings";
 
 
 import Login from "./Pages/Login/Login";
@@ -13,6 +16,7 @@ import {Routes, Route, BrowserRouter } from "react-router-dom";
 import ForgetPassword from "./Pages/ResetPassword/ForgetPassword";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import { AuthProvider } from "./context/example";
+
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -27,7 +31,11 @@ function App() {
             <Topbar />
             <Routes>
               <Route path="/" element={<Dashboard />}></Route>
-              {/* <Route path="/register" element={<CreateUser />}></Route> */}
+              <Route path="/users" element={<Users />}></Route>
+              <Route path="/adduser" element={<CreateUser />}></Route>
+              <Route path="/trainings" element={<Trainings />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+              
               {/* <Route path="/login" element={<Login />}></Route>
               <Route
                 path="/forgetPassword"

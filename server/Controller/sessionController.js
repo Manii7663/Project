@@ -5,16 +5,17 @@ const Session = require('../Models/SessionSchema');
 // Controller function to create a new training session
 exports.createTrainingSession = async (req, res) => {
   try {
-    const { programId, date, time, location, coe, trainees } = req.body;
+    const { programId, Startdatetime, Enddatetime, venue, coe, trainees } = req.body;
     
     // Create a new training session document
     const newTrainingSession = await Session.create({
       programId,
-      date,
-      time,
-      location,
+      Startdatetime,
+      Enddatetime,
+      venue,
       coe,
-      trainees
+      trainees,
+      trainerId
     });
 
 

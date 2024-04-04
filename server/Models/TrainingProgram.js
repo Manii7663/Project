@@ -3,6 +3,10 @@
 const mongoose = require('mongoose');
 
 const TrainingProgram = new mongoose.Schema({
+  programId:{
+    type:Number,
+    required:true
+  },
   programName: {
     type: String,
     required: true
@@ -16,14 +20,11 @@ const TrainingProgram = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  lastUpdatedDate: {
-    type: Date,
-    default: Date.now
-  },
-  coes: [{
+  
+  coe:{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'COE'
-  }]
+  }
 });
 
 

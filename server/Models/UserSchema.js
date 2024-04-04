@@ -21,11 +21,13 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['intern', 'employee', 'admin'],
+    enum: ['Intern', 'Employee', 'Admin'],
     required: true
   },
-  Designation:{
+  Designation: {
     type: String,
+    enum: ["Manager", "Software Engineer", "Data Analyst","Solution Enabler","Solution Consultant","Senior Software Engineer","Data Engineer","Trainee Engineer", "Developer"], // Use enum values
+    required: true
   }
 }, { timestamps: true }); // Add timestamps for createdAt and updatedAt fields
 
