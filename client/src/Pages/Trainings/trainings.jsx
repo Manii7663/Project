@@ -8,6 +8,7 @@ import TrafficIcon from "@mui/icons-material/Traffic";
 import Header from "../../Components/Header"
 import { AddCircleOutline } from "@mui/icons-material";
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
 
 
 const Trainings = () => {
@@ -20,6 +21,15 @@ const Trainings = () => {
         // Redirect to the page for adding a new member
         navigate("/addCoe");
     };
+
+    const [Coes, setCoes] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3001/get-coe")
+            .then((response) => response.json())
+            .then((data) => setCoes(data))
+            .catch((error) => console.error("Error fetching COE data", error))
+    }, []);
 
     return (
         <Box m="20px">
@@ -53,114 +63,35 @@ const Trainings = () => {
                 gap="20px"
             >
                 {/* ROW 1 */}
-                <Box
-                    gridColumn="span 3"
-                    backgroundColor={colors.primary[400]}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                >
-                    {/* <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
-            progress="0.75"
-            increase="+14%"
-            icon={
-              <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
-          /> */}
-                </Box>
-                <Box
-                    gridColumn="span 3"
-                    backgroundColor={colors.primary[400]}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                >
 
-                </Box>
-                <Box
-                    gridColumn="span 3"
-                    backgroundColor={colors.primary[400]}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                >
-
-                </Box>
-                <Box
-                    gridColumn="span 3"
-                    backgroundColor={colors.primary[400]}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                >
-
-                </Box>
-
-
-                {/* ROW 3 */}
-                <Box
-                    gridColumn="span 4"
-                    gridRow="span 2"
-                    backgroundColor={colors.primary[400]}
-                    p="30px"
-                >
-                    <Typography variant="h5" fontWeight="600">
-                        Campaign
-                    </Typography>
+                {Coes.map((coe) => (
                     <Box
-                        display="flex"
-                        flexDirection="column"
-                        alignItems="center"
-                        mt="25px"
+                        key={coe._id}
+                        gridColumn="span 4  "
+                        gridRow="span 2"
+                        backgroundColor={colors.blueAccent[500]}
+                        padding="20px"
+                        borderRadius="8px"
+                        position="relative"
                     >
-
-                        <Typography
-                            variant="h5"
-                            color={colors.greenAccent[500]}
-                            sx={{ mt: "15px" }}
-                        >
-                            $48,352 revenue generated
+                        <Typography variant="h3" fontWeight="600">
+                            {coe.coeName}
                         </Typography>
-                        <Typography>Includes extra misc expenditures and costs</Typography>
+                        <Typography variant="h6" mt="10px">
+                            {coe.description}
+                        </Typography>
+                        <Typography
+                            variant="body2"
+                            position="absolute" // Position absolutely within the Box
+                            bottom="10px" // Align at the bottom
+                            right="10px" // Align at the right
+                        >
+                            COE Head: {coe.coeHead}
+                        </Typography>
                     </Box>
-                </Box>
-                <Box
-                    gridColumn="span 4"
-                    gridRow="span 2"
-                    backgroundColor={colors.primary[400]}
-                >
-                    <Typography
-                        variant="h5"
-                        fontWeight="600"
-                        sx={{ padding: "30px 30px 0 30px" }}
-                    >
-                        Sales Quantity
-                    </Typography>
-                    <Box height="250px" mt="-20px">
+                ))}
 
-                    </Box>
-                </Box>
-                <Box
-                    gridColumn="span 4"
-                    gridRow="span 2"
-                    backgroundColor={colors.primary[400]}
-                    padding="30px"
-                >
-                    <Typography
-                        variant="h5"
-                        fontWeight="600"
-                        sx={{ marginBottom: "15px" }}
-                    >
-                        Geography Based Traffic
-                    </Typography>
-                    <Box height="200px">
 
-                    </Box>
-                </Box>
             </Box>
         </Box>
     );

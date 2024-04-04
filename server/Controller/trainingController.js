@@ -26,6 +26,20 @@ exports.createTrainingProgram = async (req, res) => {
   }
 };
 
+exports.getTrainingPrograms = async (req, res) => {
+  try {
+    // Retrieve all training programs from the database
+    const trainingPrograms = await TrainingProgram.find();
+
+    res.status(200).json(trainingPrograms);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+
+
 // Controller function to create a new COE
 exports.createCOE = async (req, res) => {
   try {
@@ -44,3 +58,16 @@ exports.createCOE = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+exports.getCOE = async (req, res) => {
+  try {
+    // Retrieve all COE documents from the database
+    const coes = await CoeSchema.find();
+
+    res.status(200).json(coes);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+

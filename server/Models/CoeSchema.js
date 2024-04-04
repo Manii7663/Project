@@ -10,7 +10,7 @@ const CoeSchema = new mongoose.Schema({
   description: String,
   coeHead:[{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'trainer'
+      ref: 'user'
   }]
 });
 
