@@ -20,11 +20,16 @@ const TrainingProgram = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  
   coe:{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'COE'
-  }
+  },
+  trainerId: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 

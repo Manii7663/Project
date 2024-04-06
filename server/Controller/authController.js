@@ -20,7 +20,8 @@ exports.logIn = async (req, res) => {
             return res.status(402).json({ error: 'Invalid password' });
         }
 
-        res.status(201).json({ message: 'Login successful', user: user});
+        res.status(201).json({ token:"34",message: 'Login successful', user: user});
+
 
     } catch (error) {
         res.status(500).json({ error: 'Server error' });

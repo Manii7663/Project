@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './Login.css';
@@ -10,6 +10,14 @@ function Login() {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Check if user is already logged in
+    const token = localStorage.getItem('token');
+    if (token) {
+      window.location.href = '/dashboard'; // Redirect to dashboard if token exists
+    }
+  }, []);
+
   const loginValidate = async (e) => {
     e.preventDefault();
     try {
@@ -19,18 +27,29 @@ function Login() {
       });
       if (res.status === 201) {
         console.log("validated successfully");
-        navigate("/");
+        const { token } = res.data; // Corrected: res, not response
+        console.log(res.data)
+        console.log(token)
+        if (token) {
+          localStorage.setItem('token', token);
+          navigate("/dashboard");
+        } else {
+          console.error("Token not received in response.");
+          alert("Token not received. Please try again.");
+        }
+        navigate("/dashboard");
       }
     } catch (err) {
       console.log("error encountered");
       console.log(err);
-      if (err.response.status === 401 || err.response.status === 402) {
+      if (err.response && (err.response.status === 401 || err.response.status === 402)) {
         alert(err.response.data.error);
       } else {
         alert("Internal Server Error");
       }
     }
   };
+  
 
   return (
     <section className="background-radial-gradient overflow-hidden">

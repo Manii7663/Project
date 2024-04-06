@@ -19,25 +19,27 @@ const SessionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // Reference to the Center of Excellence (COE) associated with this session
-  coe: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "COE",
-    required: true,
-  },
   // Array of trainees (interns or employees) attending this session
   trainees: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      required: true
     },
   ],
-  trainerId: [
+  trainers: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      required: true
     },
+
   ],
+  status: {
+    type: String,
+    enum: ["pending", "completed"],
+    default: "pending" 
+  }
 });
 
 module.exports = mongoose.model("TrainingSession", SessionSchema);

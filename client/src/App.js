@@ -5,6 +5,8 @@ import Sidebar from "./Pages/Global/Sidebar";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Home from "./Pages/Home";
 import Users from "./Pages/Users/users";
+
+import TrainingDetails from "./Pages/Trainings/TrainingDetails";
 import Trainings from "./Pages/Trainings/trainings";
 
 import Login from "./Pages/Login/Login";
@@ -12,6 +14,8 @@ import CreateUser from "./Pages/CreateUser/CreateUser";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Calendar from "./Pages/Calendar/Calendar";
+
+import Schedule  from "./Pages/Schedule/Schedule";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import ForgetPassword from "./Pages/ResetPassword/ForgetPassword";
@@ -30,12 +34,14 @@ function App() {
             <main className="content">
               <Topbar />
               <Routes>
-                <Route path="/" element={<Dashboard />}></Route>
+                <Route path="/dashboard" element={<Dashboard />}></Route>
                 <Route path="/users" element={<Users />}></Route>
                 <Route path="/adduser" element={<CreateUser />}></Route>
                 <Route path="/trainings" element={<Trainings />}></Route>
-                <Route path="/login" element={<Login />}></Route>
+                <Route path="/" element={<Login />}></Route>
                 <Route path="/calendar" element={<Calendar />}></Route>
+                <Route path="/schedule" element={<Schedule />}></Route>
+                <Route path="/training-details/:coeId?" element={<TrainingDetails />} />
                 <Route
                   path="/forgetPassword"
                   element={<ForgetPassword />}

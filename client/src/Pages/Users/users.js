@@ -53,8 +53,8 @@ const Users = () => {
               role === "Admin"
                 ? colors.greenAccent[600]
                 : role === "Employee"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[800]
+                  ? colors.greenAccent[700]
+                  : colors.greenAccent[800]
             }
             borderRadius="4px"
             className="centered-content"
@@ -73,8 +73,8 @@ const Users = () => {
       width: 150,
       renderCell: () => (
         <Box display="flex" alignItems="center" justifyContent="center" m="10px 0 0 0">
-          <Button startIcon={<EditOutlined />} onClick={handleEditClick}  sx={{ color: '#1976d2' }}/>
-          <Button startIcon={<DeleteOutline />} onClick={handleDeleteClick} sx={{ color: '#f44336' }}/>
+          <Button startIcon={<EditOutlined />} onClick={handleEditClick} sx={{ color: '#1976d2' }} />
+          <Button startIcon={<DeleteOutline />} onClick={handleDeleteClick} sx={{ color: '#f44336' }} />
         </Box>
       ),
     },
@@ -95,37 +95,22 @@ const Users = () => {
   };
 
   return (
-    <Box>
-      <Box display="flex" justifyContent="space-between" alignItems="center" >
-        <Header
-          title="Users"
-          subtitle={"Managing the Users"}
-          buttonName="Add"
-          buttonIcon={<AddCircleOutline color="neutral" />}
-          action={handleAddNewMember}
-        ></Header>
+    <Box  m="20px 10px">
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+        <Header title={"USERS"} />
+        <Button
+          variant="contained"
+          color="primary"
+          startIcon={<AddCircleOutline />}
+          onClick={handleAddNewMember}
 
-        <Box>
-          <Button
-            onClick={handleAddNewMember}
-            sx={{
-              backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <AddCircleOutline sx={{ mr: "10px" }} />
-            Add
-          </Button>
-        </Box>
+        >
+          Add
+        </Button>
       </Box>
-
       <Box
-        m="0 0 0 0"
-        height="100%"
-        width={"100%"}
+        height="100vh"
+        width="100%"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -157,7 +142,7 @@ const Users = () => {
           },
         }}
       >
-        <DataGrid rows={users} columns={columns} />
+        <DataGrid rows={users} columns={columns} pageSize={5} rowsPerPageOptions={[5, 10, 20]} />
       </Box>
     </Box>
   );

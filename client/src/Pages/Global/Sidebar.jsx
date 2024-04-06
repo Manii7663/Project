@@ -47,7 +47,7 @@ const Sidebar = () => {
     return (
         <Box
             sx={{
-                height:"100vh" ,
+                height:"100%" ,
                 
                 "& .pro-sidebar-inner": {
                     background: `${colors.primary[400]} !important`,
@@ -126,6 +126,15 @@ const Sidebar = () => {
                                 setSelected={setSelected}
                             />
                         )}
+                        {role === 'Admin' && (
+                            <Item
+                                title="Schedule"
+                                to="/schedule"
+                                icon={<CalendarTodayOutlinedIcon />}
+                                selected={selected}
+                                setSelected={setSelected}
+                            />
+                        )}
                         {role !== 'Admin' && (
                             <Item
                                 title="Calendar"
@@ -197,13 +206,7 @@ const Sidebar = () => {
                             selected={selected}
                             setSelected={setSelected}
                         />
-                        <Item
-                            title="Calendar"
-                            to="/calendar"
-                            icon={<CalendarTodayOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
+                
                         <Item
                             title="FAQ Page"
                             to="/faq"

@@ -1,20 +1,15 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Button, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
-import Header from "../../Components/Header"
 import { AddCircleOutline } from "@mui/icons-material";
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+import Header from "../../Components/Header";
 
 
 const Trainings = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-
     const navigate = useNavigate();
 
     const handleAddCoe = () => {
@@ -22,7 +17,13 @@ const Trainings = () => {
         navigate("/addCoe");
     };
 
-    const [Coes, setCoes] = useState([])
+    const CustomLink = ({ ...props }) => (
+        <Link {...props} style={{ textDecoration: 'none' }}>
+
+        </Link>
+    );
+
+    const [Coes, setCoes] = useState([]);
 
     useEffect(() => {
         fetch("http://localhost:3001/get-coe")
@@ -34,64 +35,37 @@ const Trainings = () => {
     return (
         <Box m="20px">
             {/* HEADER */}
-            <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Header title="Trainings" subtitle="Welcome to your Trainings" />
-
-                <Box>
-                    <Button
-                        onClick={handleAddCoe}
-                        sx={{
-                            backgroundColor: colors.blueAccent[700],
-                            color: colors.grey[100],
-                            fontSize: "14px",
-                            fontWeight: "bold",
-                            padding: "10px 20px",
-                        }}
-                    >
-                        <AddCircleOutline sx={{ mr: "10px" }} />
-                        Add
-                    </Button>
-                </Box>
+            <Box  display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+                <Header title={"TRAININGS"}/>
+                <Button
+                    onClick={handleAddCoe}
+                    variant="contained"
+                    color="primary"
+                    startIcon={<AddCircleOutline />}
+                >
+                    Add
+                </Button>
             </Box>
 
-
-            {/* GRID & CHARTS */}
-            <Box
-                display="grid"
-                gridTemplateColumns="repeat(12, 1fr)"
-                gridAutoRows="140px"
-                gap="20px"
-            >
-                {/* ROW 1 */}
-
+            {/* MAIN CONTENT  */}
+            <Box display="grid" gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={3} >
+                {/* Training COEs */}
                 {Coes.map((coe) => (
                     <Box
                         key={coe._id}
-                        gridColumn="span 4  "
-                        gridRow="span 2"
-                        backgroundColor={colors.blueAccent[500]}
-                        padding="20px"
-                        borderRadius="8px"
-                        position="relative"
+                        component={CustomLink} // Use Link component
+                        to={`/training-details/${coe._id}`}
+                        bgcolor={colors.blueAccent[500]}
+                        color={colors.grey[100]}
+                        p={3}
+                        borderRadius={2}
+                        position={"relative"}
                     >
-                        <Typography variant="h3" fontWeight="600">
-                            {coe.coeName}
-                        </Typography>
-                        <Typography variant="h6" mt="10px">
-                            {coe.description}
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            position="absolute" // Position absolutely within the Box
-                            bottom="10px" // Align at the bottom
-                            right="10px" // Align at the right
-                        >
-                            COE Head: {coe.coeHead}
-                        </Typography>
+                        <Typography variant="h5" fontWeight="bold" gutterBottom>{coe.coeName}</Typography>
+                        <Typography variant="subtitle1" mb={2}>{coe.description}</Typography>
+                        <Typography variant="body2" position="absolute" bottom="10px" right="10px">COE Head: {coe.coeHead}</Typography>
                     </Box>
                 ))}
-
-
             </Box>
         </Box>
     );

@@ -6,7 +6,7 @@ const CoeSchema = require("../Models/CoeSchema");
 // Controller function to create a new training program
 exports.createTrainingProgram = async (req, res) => {
   try {
-    const { programId, programName, description, createdBy,creationDate, coe } = req.body;
+    const { programId, programName, description, createdBy,creationDate, coe,trainerId } = req.body;
 
     // Create a new training program
 
@@ -17,6 +17,7 @@ exports.createTrainingProgram = async (req, res) => {
       createdBy,
       creationDate,
       coe,
+      trainerId
     });
 
     res.status(201).json(savedTrainingProgram);
@@ -26,10 +27,22 @@ exports.createTrainingProgram = async (req, res) => {
   }
 };
 
+
 exports.getTrainingPrograms = async (req, res) => {
   try {
-    // Retrieve all training programs from the database
-    const trainingPrograms = await TrainingProgram.find();
+    // Check if COE ID is provided in the request parameters
+    const { coeId } = req.params;
+    let trainingPrograms;
+
+    // If COE ID is provided, fetch training programs filtered by COE ID
+    if (coeId != 'undefined') {
+      console.log("coe found")
+      trainingPrograms = await TrainingProgram.find({ coe: coeId });
+    } else {
+      // If COE ID is not provided, fetch all training programs
+      console.log("coe not found")
+      trainingPrograms = await TrainingProgram.find();
+    }
 
     res.status(200).json(trainingPrograms);
   } catch (err) {
