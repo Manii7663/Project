@@ -122,3 +122,37 @@ exports.getUsers = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
+
+exports.getUser = async (req, res) => {
+  const userId = req.params.userId;
+
+  try {
+    const user = await User.findOne({ id: userId});
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Return user details
+    res.status(200).json(user);
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+exports.updateUser = async (req, res) => {
+  const userId = req.params.userId;
+  const updatedUser = req.body; // Assuming the updated user data is sent in the request body
+  console.log(userId)
+  console.log(updatedUser)
+  
+  try {
+    const user = await User.findByIdAndUpdate(userId, updatedUser, { new: true });
+    res.status(200).json(user);
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+

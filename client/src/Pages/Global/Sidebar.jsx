@@ -3,24 +3,22 @@ import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
-import { tokens } from "../../theme";
+import { tokens } from "../../context/theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
-import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import { useAuth } from "../../context/authContext";
+
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+    
     return (
         <MenuItem
             active={selected === title}
@@ -36,19 +34,18 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     );
 };
 const Sidebar = () => {
+    const {User}= useAuth();
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [selected, setSelected] = useState('Dashboard');
 
 
-    const role = 'Admin';
+    const role =(User)?User.role:'Intern';
 
     return (
         <Box
-            sx={{
-                height:"100%" ,
-                
+            sx={{                
                 "& .pro-sidebar-inner": {
                     background: `${colors.primary[400]} !important`,
                 },
@@ -155,8 +152,8 @@ const Sidebar = () => {
                         )}
                         {role !== 'Admin' && (
                             <Item
-                                title="Certificates"
-                                to="/certificates"
+                                title="AssessmentsScore"
+                                to="/assessments-scores"
                                 icon={<HomeOutlinedIcon />}
                                 selected={selected}
                                 setSelected={setSelected}
@@ -172,7 +169,7 @@ const Sidebar = () => {
                                 setSelected={setSelected}
                             />
                         )}
-                        {role === 'Admin' && (
+        
                             <Item
                                 title="Trainings"
                                 to="/trainings"
@@ -180,7 +177,6 @@ const Sidebar = () => {
                                 selected={selected}
                                 setSelected={setSelected}
                             />
-                        )}
                         {role === 'Admin' && (
                             <Item
                                 title="Reports & Analytics"
@@ -193,12 +189,13 @@ const Sidebar = () => {
                         {role === 'Admin' && (
                             <Item
                                 title="Assessments"
-                                to="/invoices"
+                                to="/assessments"
                                 icon={<ReceiptOutlinedIcon />}
                                 selected={selected}
                                 setSelected={setSelected}
                             />
                         )}
+                        {role === 'Admin' && (
                         <Item
                             title="Courses"
                             to="/courses"
@@ -206,6 +203,7 @@ const Sidebar = () => {
                             selected={selected}
                             setSelected={setSelected}
                         />
+                        )}
                 
                         <Item
                             title="FAQ Page"

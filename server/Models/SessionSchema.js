@@ -7,6 +7,10 @@ const SessionSchema = new mongoose.Schema({
     ref: "TrainingProgram",
     required: true,
   },
+  programName:{
+    type:String,
+    required:true,
+  },
   Startdatetime: {
     type: Date,
     required: true,
@@ -41,5 +45,6 @@ const SessionSchema = new mongoose.Schema({
     default: "pending" 
   }
 });
+
 
 module.exports = mongoose.model("TrainingSession", SessionSchema);

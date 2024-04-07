@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -21,9 +21,10 @@ import {
     MenuItem
 } from "@mui/material";
 import Header from "../../Components/Header";
-import { tokens } from "../../theme";
+import { tokens } from "../../context/theme";
 import { useNavigate } from "react-router-dom";
 import { Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
+import axios from 'axios';
 
 const Schedule = () => {
     const theme = useTheme();
@@ -31,6 +32,41 @@ const Schedule = () => {
     const [currentEvents, setCurrentEvents] = useState([]);
 
     const [trainers, setTrainers] = useState([]);
+
+    const [Session, setSession] = useState([]);
+
+
+    useEffect(() => {
+        const fetchSession = async () => {
+            try {
+                const response = await fetch(`http://localhost:3001/get-training-sessions`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setSession(data)
+                    console.log("session", Session)
+                } else {
+                    console.error('Failed to fetch Session data');
+                }
+            } catch (error) {
+                console.error('Error fetching Session data:', error);
+            }
+        };
+
+        fetchSession();
+    }, []);
+
+    useEffect(() => {
+        const eventsWithNames = Session.map(session => ({
+            id: session._id,
+            title: session.programName,
+            start: session.Startdatetime,
+            end: session.Enddatetime,
+            allDay: false,
+        }));
+        setCurrentEvents(eventsWithNames);
+    }, [Session]);
+
+
 
     const handleDateClick = (selected) => {
         const title = prompt("Please enter a new title for your event");
@@ -72,24 +108,22 @@ const Schedule = () => {
     };
 
     return (
-        <Box m="20px">
-            <Box display={"flex"} justifyContent={"space-between"}>
+        <Box m="10px">
+            <Box display={"flex"} justifyContent={"space-between"} mb="5px">
                 <Header title="Calendar" />
-                <Box>
-                    <Button
-                        onClick={handleAddNewEvent}
-                        sx={{
-                            backgroundColor: colors.blueAccent[700],
-                            color: colors.grey[100],
-                            fontSize: "14px",
-                            fontWeight: "bold",
-                            padding: "8px 10px",
-                        }}
-                    >
-                        <AddCircleOutline sx={{ mr: "10px" }} />
-                        Add
-                    </Button>
-                </Box>
+                <Button
+                    onClick={handleAddNewEvent}
+                    sx={{
+                        backgroundColor: colors.blueAccent[700],
+                        color: colors.grey[100],
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                        padding: "4px 10px",
+                    }}
+                >
+                    <AddCircleOutline sx={{ mr: "10px" }} />
+                    Add
+                </Button>
             </Box>
 
             <Box display="flex" justifyContent="space-between">
@@ -110,12 +144,12 @@ const Schedule = () => {
                                     backgroundColor: colors.blueAccent[700],
                                     margin: "5px 0",
                                     borderRadius: "2px",
-                                    padding:"2px 2px"
+                                    padding: "2px 2px"
                                 }}
                             >
                                 <ListItemText
                                     primary={event.title}
-                                    
+
                                 />
                             </ListItem>
                         ))}
@@ -144,7 +178,7 @@ const Schedule = () => {
                         dayMaxEvents={true}
                         select={handleDateClick}
                         eventClick={handleEventClick}
-                        eventsSet={(events) => setCurrentEvents(events)}
+                        eventsSet={currentEvents}
                         initialEvents={[
                             {
                                 id: "12315",
@@ -250,12 +284,12 @@ const Schedule = () => {
                             </Select>
                         </FormControl>
                         <TextField
-                           
+
                             id="Venue"
                             label="Venue"
                             type="text"
                             fullWidth
-                            
+
                         />
                         <TextField
                             id="Startdatetime"
@@ -279,9 +313,6 @@ const Schedule = () => {
                             sx={{ gridColumn: "span 2" }}
                             required
                         />
-
-
-
                     </Box>
                 </DialogContent>
                 <DialogActions>
@@ -294,3 +325,4 @@ const Schedule = () => {
 };
 
 export default Schedule;
+

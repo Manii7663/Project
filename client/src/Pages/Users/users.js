@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Box, Typography, useTheme, Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
+import { tokens } from "../../context/theme";
 import { useNavigate } from "react-router-dom";
 // import { mockDataTeam } from "../../data/mockData";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";

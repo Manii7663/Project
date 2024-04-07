@@ -1,6 +1,6 @@
-import { Box, IconButton, useTheme } from "@mui/material";
-import { useContext } from "react";
-import { ColorModeContext, tokens } from "../../theme";
+import { Box, IconButton, useTheme,Button, Dialog, DialogTitle, DialogActions } from "@mui/material";
+import { useContext,useState } from "react";
+import { ColorModeContext, tokens } from "../../context/theme";
 import InputBase from "@mui/material/InputBase";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -8,11 +8,28 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { Link,useNavigate } from 'react-router-dom';
+import {useAuth} from "../../context/authContext"
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+  const navigate=useNavigate();
+  const {setIsAuthenticated}=useAuth();
+
+  const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
+
+  const userId = localStorage.getItem('user');
+  const handleLogout = () => {
+    // Clear user from local storage
+    localStorage.removeItem('user');
+    // Redirect to login page
+    setIsAuthenticated(false);
+    window.location.href = "/";
+  };
+
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -37,16 +54,23 @@ const Topbar = () => {
             <LightModeOutlinedIcon />
           )}
         </IconButton>
-        <IconButton>
-          <NotificationsOutlinedIcon />
+        <IconButton component={Link} to={`/userprofile/${userId}`}>
+        <PersonOutlinedIcon />
         </IconButton>
-        <IconButton>
-          <SettingsOutlinedIcon />
+        <IconButton onClick={() => setLogoutDialogOpen(true)}>
+          
+          <ExitToAppIcon />
         </IconButton>
-        <IconButton>
-          <PersonOutlinedIcon />
-        </IconButton>
+        
       </Box>
+      {/* Logout Dialog */}
+      <Dialog open={logoutDialogOpen} onClose={() => setLogoutDialogOpen(false)}>
+        <DialogTitle>Logout</DialogTitle>
+        <DialogActions>
+          <Button onClick={handleLogout}>Yes</Button>
+          <Button onClick={() => setLogoutDialogOpen(false)}>Cancel</Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };

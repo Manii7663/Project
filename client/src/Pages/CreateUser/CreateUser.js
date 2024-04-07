@@ -69,6 +69,7 @@ const CreateUser = () => {
       .then(async (result) => {
         console.log("User created successfully:", result.data);
         window.alert("User created successfully");
+        navigate("/");
 
         const sendEmailResult = await axios.post(
           "http://localhost:3001/send-email",
@@ -80,7 +81,7 @@ const CreateUser = () => {
         );
 
         console.log("Email sent successfully:", sendEmailResult.data);
-        navigate("/");
+        
       })
       .catch((err) => {
         console.error("Error creating user:", err.response.data.error);

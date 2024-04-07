@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { logIn,sendOTP } = require('../Controller/authController');
-const {passwordMail,newUser,getUsers} =require('../Controller/userController');
+const {passwordMail,newUser,getUsers,getUser,updateUser} =require('../Controller/userController');
 const {resetPassword,forgetPassword}=require('../Controller/passwordController')
 const {newBatch} = require('../Controller/batchController')
 const {createTrainingProgram,createCOE,getTrainingPrograms,getCOE}=require('../Controller/trainingController')
 const {createTrainingSession,createAssessmentScore,getTrainingSession} =require('../Controller/sessionController')
+const {getEmployeeIds} = require("../Controller/empController")
 
 // POST request to handle user login
 router.post('/logIn', logIn);
@@ -14,6 +15,8 @@ router.post('/send-OTP',sendOTP);
 router.post('/send-email',passwordMail);
 router.post('/new-user', newUser);
 router.get('/get-users', getUsers);
+router.get('/get-user/:userId', getUser);
+router.put('/update-user/:userId', updateUser);
 
 router.post('/reset-password/:id/:token',resetPassword);
 router.post('/forget-password',forgetPassword);
@@ -27,6 +30,8 @@ router.get('/get-coe',getCOE)
 
 router.post('/create-training-session',createTrainingSession)
 router.post('/add-score',createAssessmentScore)
-router.post('/get-training-session',getTrainingSession)
+router.get('/get-training-sessions',getTrainingSession)
+
+router.get('/get-emp-ids',getEmployeeIds)
 
 module.exports = router;

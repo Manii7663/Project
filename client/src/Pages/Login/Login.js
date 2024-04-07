@@ -1,24 +1,23 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { } from "@mui/material";
 import axios from "axios";
-import './Login.css';
-import '@fortawesome/fontawesome-free/css/all.css';
+import { Container, useTheme, Typography, Paper, TextField, Button, Grid, Link } from '@mui/material';
+import { tokens } from "../../context/theme";
+import "./Login.css"
+import { useAuth } from "../../context/authContext";
+
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  const {setIsAuthenticated}= useAuth();
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Check if user is already logged in
-    const token = localStorage.getItem('token');
-    if (token) {
-      window.location.href = '/dashboard'; // Redirect to dashboard if token exists
-    }
-  }, []);
-
-  const loginValidate = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:3001/logIn", {
@@ -27,17 +26,20 @@ function Login() {
       });
       if (res.status === 201) {
         console.log("validated successfully");
-        const { token } = res.data; // Corrected: res, not response
+        const { user } = res.data;
         console.log(res.data)
-        console.log(token)
-        if (token) {
-          localStorage.setItem('token', token);
-          navigate("/dashboard");
+        console.log(user)
+        setIsAuthenticated(true)
+        
+        if (user) {
+          localStorage.setItem('user', user);
+          navigate("/");
+
         } else {
-          console.error("Token not received in response.");
-          alert("Token not received. Please try again.");
+          console.error("user not received in response.");
+          alert("user not received. Please try again.");
         }
-        navigate("/dashboard");
+
       }
     } catch (err) {
       console.log("error encountered");
@@ -49,7 +51,7 @@ function Login() {
       }
     }
   };
-  
+
 
   return (
     <section className="background-radial-gradient overflow-hidden">
@@ -71,45 +73,50 @@ function Login() {
 
             <div className="card bg-glass">
               <div className="card-body px-4 py-5 px-md-5">
-                <div className="text-center mb-4">
-                  <h2 className="mb-0">Log In</h2>
-                </div>
-                <form onSubmit={loginValidate}>
+                <Container maxWidth="xs">
 
-                  <div className="form-field d-flex align-items-center form-outline mb-4">
-                    <span class="far fa-user"></span>
-                    <input
-                      type="email"
-                      id="form3Example3"
-                      className="form-control"
-                      placeholder="Email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
+                  <Typography variant="h1" align="center" gutterBottom sx={{ color: 'primary.main' }}>
+                    Log In
+                  </Typography>
+                  <form onSubmit={handleLogin}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          type="email"
+                          label="Email"
+                          variant="outlined"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          InputProps={{ style: { borderRadius: '12px' } }}
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          type="password"
+                          label="Password"
+                          variant="outlined"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          InputProps={{ style: { borderRadius: '12px' } }}
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <Button type="submit" fullWidth variant="contained" color="primary" sx={{ borderRadius: '12px' }}>
+                          Log In
+                        </Button>
+                      </Grid>
+                      <Grid item xs={12} sx={{ textAlign: 'center' }}>
+                        <Link href="/forgetPassword" variant="body2" color="secondary">
+                          Forgot password?
+                        </Link>
+                      </Grid>
+                    </Grid>
+                  </form>
 
-                  </div>
+                </Container>
 
-                  <div className="form-outline mb-4 d-flex align-items-center">
-                    <span class="fas fa-key"></span>
-                    <input
-                      type="password"
-                      id="form3Example4"
-                      className="form-control"
-                      placeholder="Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-block mb-4 mx-auto d-block" style={{ width: '100px' }}>Log In</button>
-
-                  
-
-                    </form>
-                
-                <div class="forgot-password-link text-end" >
-                    <a href="#" style={{ color: 'red' }}>Forgot Password?</a>
-                </div>
               </div>
             </div>
           </div>
@@ -117,6 +124,8 @@ function Login() {
       </div>
     </section>
   );
+
 }
+
 
 export default Login;
