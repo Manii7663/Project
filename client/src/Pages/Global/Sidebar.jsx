@@ -41,7 +41,7 @@ const Sidebar = () => {
     const [selected, setSelected] = useState('Dashboard');
 
 
-    const role =(User)?User.role:'Intern';
+    const role =(User)?User.role:null;
 
     return (
         <Box
@@ -114,15 +114,7 @@ const Sidebar = () => {
                             selected={selected}
                             setSelected={setSelected}
                         />
-                        {role !== 'Admin' && (
-                            <Item
-                                title="My Courses"
-                                to="/my-courses"
-                                icon={<HomeOutlinedIcon />}
-                                selected={selected}
-                                setSelected={setSelected}
-                            />
-                        )}
+                        
                         {role === 'Admin' && (
                             <Item
                                 title="Schedule"
@@ -143,8 +135,8 @@ const Sidebar = () => {
                         )}
                         {role !== 'Admin' && (
                             <Item
-                                title="Assessments"
-                                to="/my-assessments"
+                                title="Assessment Score"
+                                to="/assesment-scores"
                                 icon={<HomeOutlinedIcon />}
                                 selected={selected}
                                 setSelected={setSelected}
@@ -152,13 +144,14 @@ const Sidebar = () => {
                         )}
                         {role !== 'Admin' && (
                             <Item
-                                title="AssessmentsScore"
-                                to="/assessments-scores"
+                                title="My Progress"
+                                to="/my-progress"
                                 icon={<HomeOutlinedIcon />}
                                 selected={selected}
                                 setSelected={setSelected}
                             />
                         )}
+                        
                         
                         {role === 'Admin' && (
                             <Item
@@ -182,6 +175,15 @@ const Sidebar = () => {
                                 title="Reports & Analytics"
                                 to="/contacts"
                                 icon={<ContactsOutlinedIcon />}
+                                selected={selected}
+                                setSelected={setSelected}
+                            />
+                        )}
+                        {role !== 'Admin' && (
+                            <Item
+                                title="My Courses"
+                                to="/my-courses"
+                                icon={<HomeOutlinedIcon />}
                                 selected={selected}
                                 setSelected={setSelected}
                             />

@@ -1,0 +1,9 @@
+,_id,coeName,description,coeHead,__v
+0,660ed4a4d1b3e162abf04cb1,Software Engineering,This COE covers various software engineering principles and practices.,[ObjectId('66053fefd7c487757f97efbc')],0
+1,660ed4c2d1b3e162abf04cb3,Cloud Computing,This COE deals with cloud computing platforms and services.,[ObjectId('66053fefd7c487757f97efbc')],0
+2,660ed5b4d1b3e162abf04cb9,UI/UX Design,"Dedicated to creating intuitive and visually appealing user interfaces, this COE focuses on enhancing user satisfaction through user-centered design principles and seamless interactions.",[ObjectId('66053fefd7c487757f97efbc')],0
+3,660ed5c4d1b3e162abf04cbb,Backend Development,"Focused on building scalable and secure server-side architectures, this COE ensures efficient data processing and seamless integration between databases and frontend systems.",[ObjectId('66053fefd7c487757f97efbc')],0
+4,660ed5d6d1b3e162abf04cbd,Data Engineering,"Specializing in designing and optimizing data pipelines and infrastructure, this COE empowers organizations to efficiently manage and process large volumes of data for actionable insights.",[ObjectId('66053fefd7c487757f97efbc')],0
+5,660ed5e7d1b3e162abf04cbf,Data Analytics,"Engaged in extracting actionable insights from complex datasets, this COE employs advanced analytics techniques to enable data-driven decision-making and strategic planning.",[ObjectId('66053fefd7c487757f97efbc')],0
+6,660ed5f7d1b3e162abf04cc1,Automation,"Committed to streamlining business processes and improving operational efficiency, this COE leverages automation technologies to automate repetitive tasks and drive productivity.",[ObjectId('66053fefd7c487757f97efbc')],0
+7,660ee2b507387480c73af15e,Data Science,"This COE specializes in advanced data analysis techniques, leveraging machine learning algorithms to uncover meaningful insights and drive strategic decision-making.",[ObjectId('66053fefd7c487757f97efbc')],0

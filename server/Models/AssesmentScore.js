@@ -7,7 +7,11 @@ const AssessmentScore = new mongoose.Schema({
         ref: 'TrainingSession',
         required: true
     },
-    internId: {
+    sessionName:{
+        type:String,
+        required:true
+    },
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
@@ -17,6 +21,10 @@ const AssessmentScore = new mongoose.Schema({
         required: true
     },
     totalScore: {
+        type: Number,
+        required: true
+    },
+    score:{
         type: Number,
         required: true
     }

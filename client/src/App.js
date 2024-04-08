@@ -14,7 +14,9 @@ import UserProfile from "./Pages/UserProfile/UserProfile";
 import ForgetPassword from "./Pages/ResetPassword/ForgetPassword";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import AuthStatus from "./Components/AuthStatus";
+import AssesmentScore from './Pages/AssesmentScore/AssesmentScore';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MyProgress from './Pages/MyProgress/Progress';
 
 
 import Topbar from "./Pages/Global/Topbar";
@@ -47,6 +49,8 @@ function App() {
                   <Route path="/training-details/:coeId?" element={<TrainingDetails />} />
                   <Route path="/userprofile/:userId" element={<UserProfile />} />
                   <Route path="/authstatus" element={<AuthStatus />} />
+                  <Route path="/my-progress" element={<MyProgress />} />
+                  <Route path="/assesment-scores" element={<AssesmentScore />} />
                   <Route path="/" element={<Navigate to="/dashboard" />} /> {/* Redirect authenticated user to dashboard */}
                 </>
               ) : ( // Public routes for unauthenticated users

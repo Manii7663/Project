@@ -5,8 +5,9 @@ const {passwordMail,newUser,getUsers,getUser,updateUser} =require('../Controller
 const {resetPassword,forgetPassword}=require('../Controller/passwordController')
 const {newBatch} = require('../Controller/batchController')
 const {createTrainingProgram,createCOE,getTrainingPrograms,getCOE}=require('../Controller/trainingController')
-const {createTrainingSession,createAssessmentScore,getTrainingSession} =require('../Controller/sessionController')
+const {createTrainingSession,getTrainingSession} =require('../Controller/sessionController')
 const {getEmployeeIds} = require("../Controller/empController")
+const {createAssessmentScore,getAssessmentScores} = require('../Controller/assesmentController')
 
 // POST request to handle user login
 router.post('/logIn', logIn);
@@ -33,5 +34,8 @@ router.post('/add-score',createAssessmentScore)
 router.get('/get-training-sessions',getTrainingSession)
 
 router.get('/get-emp-ids',getEmployeeIds)
+
+router.post('/create-ass-score',createAssessmentScore);
+router.get('/get-ass-scores',getAssessmentScores);
 
 module.exports = router;

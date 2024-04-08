@@ -4,9 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../context/theme";
 import { useNavigate } from "react-router-dom";
 // import { mockDataTeam } from "../../data/mockData";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
+
 import EditOutlined from "@mui/icons-material/EditOutlined"
 import DeleteOutline from "@mui/icons-material/DeleteOutline"
 import Header from "../../Components/Header";

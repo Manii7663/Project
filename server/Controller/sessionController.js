@@ -5,7 +5,7 @@ const TrainingProgram = require("../Models/TrainingProgram");
 // Controller function to create a new training session
 exports.createTrainingSession = async (req, res) => {
   try {
-    const { programId, Startdatetime, Enddatetime, venue, trainees, trainers, status } = req.body;
+    const { programId, Startdatetime, Enddatetime, venue, trainee, trainers, status,batch } = req.body;
 
     // Fetch the training program document using programId
     const trainingProgram = await TrainingProgram.findById(programId);
@@ -25,9 +25,9 @@ exports.createTrainingSession = async (req, res) => {
       Startdatetime,
       Enddatetime,
       venue,
-      trainees,
+      trainee,
       trainers,
-      status
+      status,
     });
 
     res.status(201).json(newTrainingSession);
@@ -54,22 +54,3 @@ exports.getTrainingSession = async (req, res) => {
 
 
 
-const AssessmentScore = require('../Models/AssesmentScore');
-
-exports.createAssessmentScore = async (req, res) => {
-    try {
-        const { assessmentSessionId, internId, assessmentDate, totalScore } = req.body;
-
-        const newAssessmentScore = await AssessmentScore.create({
-            assessmentSessionId,
-            internId,
-            assessmentDate,
-            totalScore
-        });
-
-        res.status(201).json(newAssessmentScore);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Internal Server Error' });
-    }
-};

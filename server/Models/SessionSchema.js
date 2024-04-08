@@ -24,13 +24,13 @@ const SessionSchema = new mongoose.Schema({
     required: true,
   },
   // Array of trainees (interns or employees) attending this session
-  trainees: [
+  trainee:
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true
     },
-  ],
+
   trainers: [
     {
       type: mongoose.Schema.Types.ObjectId,
