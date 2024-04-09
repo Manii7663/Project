@@ -3,7 +3,7 @@ const TrainingSession = require('../Models/SessionSchema'); // Assuming you have
 
 exports.createAssessmentScore = async (req, res) => {
     try {
-        let { assessmentSessionId, userId, assessmentDate, totalScore, score, sessionName } = req.body;
+        let { assessmentSessionId, userId, assessmentDate, maxScore, score, sessionName } = req.body;
 
         // If sessionName is not provided, fetch it from the TrainingSession database using the assessmentSessionId
         if (!sessionName) {
@@ -22,7 +22,7 @@ exports.createAssessmentScore = async (req, res) => {
             assessmentSessionId,
             userId,
             assessmentDate,
-            totalScore,
+            maxScore,
             score,
             sessionName
         });

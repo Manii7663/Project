@@ -20,7 +20,7 @@ const AssessmentScore = new mongoose.Schema({
         type: Date,
         required: true
     },
-    totalScore: {
+    maxScore: {
         type: Number,
         required: true
     },

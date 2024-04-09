@@ -7,6 +7,10 @@ const UserSchema = new mongoose.Schema(
       required: true,
       unique: true, // Ensure uniqueness if necessary
     },
+    batchId:{
+      type:Number,
+      ref:'Batch'
+    },
     name: {
       type: String,
       required: true,
@@ -41,6 +45,6 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
   },
-); // Add timestamps for createdAt and updatedAt fields
+); 
 
 module.exports = mongoose.model("User", UserSchema);

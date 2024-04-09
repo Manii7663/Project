@@ -5,7 +5,7 @@ const Mailgen = require("mailgen");
 const { EMAIL, PASSWORD } = require("../env.js");
 
 exports.newUser = async (req, res) => {
-  const { id, name, email, password, role, Designation } = req.body;
+  const { id,batchId, name, email, password, role, Designation } = req.body;
 
   try {
     // Check if the ID already exists
@@ -25,6 +25,7 @@ exports.newUser = async (req, res) => {
     // If email doesn't exist, proceed to create the new user
     const newUser = await User.create({
       id,
+      batchId,
       name,
       email,
       password,
