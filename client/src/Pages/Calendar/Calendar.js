@@ -52,11 +52,11 @@ const MyCalendar = () => {
   }, []);
 
   useEffect(() => {
-    const eventsWithNames = Session.filter(session => session.trainee === User._id).map((session) => ({
+    const eventsWithNames = Session.filter(session => session.trainee === User._id && session.status === "pending").map((session) => ({
       id: session._id,
       title: session.programName,
-      start: session.Startdatetime,
-      end: session.Enddatetime,
+      start: new Date(session.Startdatetime),
+      end: new Date(session.Enddatetime),
       allDay: false,
       status: session.status, // Include status in event data
       venue: session.venue
@@ -114,7 +114,7 @@ const MyCalendar = () => {
           >
             <Typography variant="h4">To Do</Typography>
             <List>
-            {currentEvents.filter(event => event.status === "pending").map(event => (
+              {currentEvents.filter(event => event.status === "pending").map(event => (
                 <ListItem
                   key={event.id}
                   sx={{
@@ -128,7 +128,7 @@ const MyCalendar = () => {
                     secondary={
                       <Typography>
                         {formatDate(event.start, {
-                          
+
                           month: "short",
                           day: "numeric",
                           hour: "numeric",
@@ -136,7 +136,7 @@ const MyCalendar = () => {
                         })}{" "}
                         -
                         {formatDate(event.end, {
-                          
+
                           month: "short",
                           day: "numeric",
                           hour: "numeric",
@@ -156,9 +156,9 @@ const MyCalendar = () => {
           <Calendar
             localizer={localizer}
             events={currentEvents}
-            eventPropGetter={eventStyleGetter} 
+            eventPropGetter={eventStyleGetter}
             startAccessor="start"
-            views={['month', 'day','agenda']}
+            views={['month', 'day', 'agenda']}
             endAccessor="end"
             style={{ margin: "10px" }}
             onSelectEvent={handleEventClick}
@@ -168,15 +168,16 @@ const MyCalendar = () => {
       {/* Dialog to display event details */}
       <Dialog open={openDialog} onClose={handleCloseDialog}>
         <DialogTitle><Typography variant="h4">
-        {selectedEvent?.title}
-          </Typography></DialogTitle>
+          {selectedEvent?.title}
+        </Typography></DialogTitle>
         <DialogContent>
           <Typography variant="body1">
-             <b>Start:</b> {selectedEvent?.start}
+            <b>Start:</b> {selectedEvent?.start.toString()}
           </Typography>
           <Typography variant="body1">
-           <b> End:</b> {selectedEvent?.end}
+            <b>End:</b> {selectedEvent?.end.toString()}
           </Typography>
+
           <Typography variant="body1">
             <b>Venue:</b> {selectedEvent?.venue}
           </Typography>
@@ -186,7 +187,7 @@ const MyCalendar = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog} color="primary">
-           <b> Close</b>
+            <b> Close</b>
           </Button>
         </DialogActions>
       </Dialog>

@@ -5,19 +5,20 @@ const TrainingProgram = require("../Models/TrainingProgram");
 // Controller function to create a new training session
 exports.createTrainingSession = async (req, res) => {
   try {
-    const { programId, Startdatetime, Enddatetime, venue, trainee, trainers, status,batch } = req.body;
+    const { programId,programName, Startdatetime, Enddatetime, venue, trainee, trainers, status } = req.body;
 
     // Fetch the training program document using programId
-    const trainingProgram = await TrainingProgram.findById(programId);
-
-    if (!trainingProgram) {
-      return res.status(404).json({ message: 'Training program not found' });
+    if(!programName || programName=='')
+    {
+      const trainingProgram = await TrainingProgram.findById(programId);
+      if (!trainingProgram) {
+        return res.status(404).json({ message: 'Training program not found' });
+      }
+      programName = trainingProgram.programName;
+      console.log(programName);
     }
-
-    // Extract the programName
-    const programName = trainingProgram.programName;
-    console.log(programName);
-
+    
+    
     // Create a new training session document
     const newTrainingSession = await Session.create({
       programId,

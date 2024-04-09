@@ -18,7 +18,6 @@ import AssesmentScore from './Pages/AssesmentScore/AssesmentScore';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyProgress from './Pages/MyProgress/Progress';
 
-
 import Topbar from "./Pages/Global/Topbar";
 import Sidebar from "./Pages/Global/Sidebar";
 import { ColorModeContext, useMode } from "./context/theme";
@@ -27,7 +26,6 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 function App() {
   const [theme, colorMode] = useMode();
   const {isAuthenticated} = useAuth();
-  console.log("app",isAuthenticated)
 
   return (
     <ColorModeContext.Provider value={colorMode}>

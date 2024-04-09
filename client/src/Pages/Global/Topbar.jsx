@@ -17,11 +17,11 @@ const Topbar = () => {
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
   const navigate=useNavigate();
-  const {setIsAuthenticated}=useAuth();
+  const {setIsAuthenticated,User}=useAuth();
 
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
 
-  const userId = localStorage.getItem('user');
+  const userId = User?User.id:null;
   const handleLogout = () => {
     // Clear user from local storage
     localStorage.removeItem('user');
