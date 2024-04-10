@@ -52,18 +52,28 @@ const MyCalendar = () => {
   }, []);
 
   useEffect(() => {
-    const eventsWithNames = Session.filter(session => session.trainee === User._id && session.status === "pending").map((session) => ({
-      id: session._id,
-      title: session.programName,
-      start: new Date(session.Startdatetime),
-      end: new Date(session.Enddatetime),
-      allDay: false,
-      status: session.status, // Include status in event data
-      venue: session.venue
-    }));
+    const eventsWithNames = Session.filter(session => session.trainee === User._id && session.status === "pending").map((session) => {
+      // Convert UTC times to local timezone
+      const startLocalTime = new Date(session.Startdatetime);
+      const endLocalTime = new Date(session.Enddatetime);
+  
+      // Adjust for timezone offset
+      startLocalTime.setMinutes(startLocalTime.getMinutes() + startLocalTime.getTimezoneOffset());
+      endLocalTime.setMinutes(endLocalTime.getMinutes() + endLocalTime.getTimezoneOffset());
+  
+      return {
+        id: session._id,
+        title: session.programName,
+        start: startLocalTime,
+        end: endLocalTime,
+        allDay: false,
+        status: session.status,
+        venue: session.venue
+      };
+    });
     setCurrentEvents(eventsWithNames);
   }, [Session, User]);
-
+  
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768); // Adjust the breakpoint as needed
@@ -162,6 +172,7 @@ const MyCalendar = () => {
             endAccessor="end"
             style={{ margin: "10px" }}
             onSelectEvent={handleEventClick}
+            timezone="UTC+5:30"
           />
         </Box>
       </Box>

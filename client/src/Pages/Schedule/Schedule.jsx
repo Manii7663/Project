@@ -55,7 +55,7 @@ const Schedule = () => {
     Startdatetime: '',
     Enddatetime: '',
     venue: '',
-    trainee: 'unknn',
+    trainee: '',
     programId: '',
     programName: ''
 
@@ -81,15 +81,24 @@ const Schedule = () => {
   }, []);
 
   useEffect(() => {
-    const eventsWithNames = Session.filter(session => session.status === "pending").map(session => ({
-      id: session._id,
-      title: session.programName,
-      start: new Date(session.Startdatetime),
-      end: new Date(session.Enddatetime),
-      allDay: false,
-      status: session.status, // Include status in event data
-      venue: session.venue
-    }));
+    const eventsWithNames = Session.filter(session => session.status === "pending").map((session) => {
+      const startLocalTime = new Date(session.Startdatetime);
+      const endLocalTime = new Date(session.Enddatetime);
+
+      // Adjust for timezone offset
+      startLocalTime.setMinutes(startLocalTime.getMinutes() + startLocalTime.getTimezoneOffset());
+      endLocalTime.setMinutes(endLocalTime.getMinutes() + endLocalTime.getTimezoneOffset());
+
+      return {
+        id: session._id,
+        title: session.programName,
+        start: startLocalTime,
+        end: endLocalTime,
+        allDay: false,
+        status: session.status, // Include status in event data
+        venue: session.venue
+      }
+    });
     setCurrentEvents(eventsWithNames);
   }, [Session]);
 
@@ -125,7 +134,7 @@ const Schedule = () => {
     // Update the formData with selected training details
     setFormData({
       ...formData,
-      programName: selectedTraining.programName,
+      programName: selectedTraining,
       programId: selectedTrainingId
     });
 
@@ -161,6 +170,14 @@ const Schedule = () => {
   };
 
   const handleAddNewEvent = async () => {
+    
+    console.log(selectedTraining);
+    setFormData({
+      ...formData,
+      programName: trainings.find(training => training._id === selectedTraining).programName,
+    });
+    console.log("formData:",formData);
+    return
     try {
       // Fetch users with the selected trainee role
       const traineeRole = formData.trainee;
@@ -320,10 +337,10 @@ const Schedule = () => {
                 labelId="training-select-label"
                 id="training-select"
                 value={selectedTraining}
-                onChange={handleChange}
+                onChange={(e)=>setSelectedTraining(e.target.value )}
               >
                 {trainings.map(training => (
-                  <MenuItem key={training._id} value={training._id}>
+                  <MenuItem key={training._id} value={training._id} >
                     {training.programName}
                   </MenuItem>
                 ))}
@@ -336,7 +353,7 @@ const Schedule = () => {
             >
               <InputLabel>Trainees</InputLabel>
               <Select
-              value={formData.trainee}
+                value={formData.trainee}
                 onChange={(e) => setFormData({ ...formData, trainee: e.target.value })}
                 required
               >
