@@ -1,0 +1,1001 @@
+Name,Difficulty_Level,Trainers,Trainer_Experience,Total_Hours,Total_Trainee
+Swift,basic,2,5,6,20
+MySQL,basic,3,4,9,80
+MySQL,medium,4,8,1,40
+Cryptography,hard,2,2,8,20
+Accessibility,medium,4,7,9,40
+Leadership,medium,5,6,5,50
+PostgreSQL,basic,4,5,2,40
+Flask,hard,5,2,10,100
+Technical Writing,hard,2,3,8,20
+Angular,basic,4,10,6,40
+Big Data Analytics,medium,3,5,1,30
+Network Security,medium,2,5,2,20
+JavaScript,medium,5,7,6,50
+Requirements Analysis,basic,5,7,1,50
+Node.js,hard,1,1,9,10
+Responsive Design,hard,5,2,1,50
+RESTful API,medium,4,5,8,40
+Documentation,medium,3,6,10,100
+DevOps,basic,2,9,9,20
+PHP,basic,5,7,2,50
+Data Analysis,hard,3,2,10,100
+HTML,medium,3,3,7,30
+Python,medium,4,1,2,40
+NoSQL,medium,3,9,8,30
+Git,basic,2,2,6,20
+SQL,medium,1,1,7,10
+React,hard,4,10,4,40
+CSS,basic,5,9,1,50
+React,medium,3,6,7,30
+Vue.js,basic,2,9,8,20
+JavaScript,basic,5,8,8,50
+Agile Product Management,basic,4,6,10,100
+Collaboration,basic,3,6,10,90
+Agile Methodologies,medium,2,5,10,80
+Data Visualization,basic,4,6,3,40
+Communication,hard,1,5,6,10
+Objective-C,medium,4,4,9,40
+AWS,hard,5,7,3,50
+AWS,basic,5,9,9,50
+PostgreSQL,medium,3,7,3,30
+UI/UX Design,basic,3,4,5,30
+PostgreSQL,medium,5,9,8,50
+PHP,medium,3,10,10,100
+Docker,basic,4,4,6,40
+Swift,hard,5,1,3,50
+Data Science,hard,1,8,7,10
+Microservices,medium,1,3,1,10
+DevOps,basic,4,8,6,40
+Communication,medium,2,9,2,20
+Problem Solving,basic,5,6,5,50
+SQL,basic,3,8,1,30
+Behavior-Driven Development,medium,2,7,8,20
+JavaScript,medium,1,10,5,10
+Test-Driven Development,basic,1,7,10,100
+Problem Solving,basic,1,1,8,10
+Troubleshooting,medium,4,6,2,40
+Information Security,hard,1,8,9,10
+Python for Data Science,basic,1,10,5,10
+MySQL,medium,2,6,3,20
+Ruby,hard,3,4,8,30
+.NET,medium,4,2,4,40
+CI/CD,basic,3,6,10,80
+PostgreSQL,medium,4,2,3,40
+MySQL,hard,4,8,8,40
+Technical Writing,medium,3,5,8,30
+NoSQL,hard,3,2,2,30
+JavaScript,medium,5,4,2,50
+Statistical Analysis,hard,1,5,5,10
+Prototyping,basic,2,8,6,20
+Data Science,basic,1,4,10,10
+RESTful API,hard,5,3,3,50
+Responsive Design,medium,4,5,7,40
+PostgreSQL,hard,3,7,3,30
+Google Cloud Platform,medium,5,2,10,50
+Penetration Testing,basic,2,8,5,20
+Cryptography,basic,3,9,2,30
+Flask,hard,3,4,8,30
+Test-Driven Development,basic,4,9,10,40
+DevOps,hard,5,10,5,50
+Machine Learning,medium,3,7,6,30
+Deep Learning Concepts,medium,4,8,5,40
+Wireframing,basic,2,10,9,20
+.NET,basic,4,4,4,40
+Angular,hard,3,3,7,30
+Microservices,medium,1,1,8,10
+Scrum,medium,2,4,3,20
+Continuous Integration,medium,4,6,4,40
+Kubernetes,hard,3,10,7,30
+Machine Learning Fundamentals,medium,4,5,2,40
+Google Cloud Platform,basic,1,3,9,10
+AWS,basic,5,7,4,50
+MongoDB,basic,4,3,10,80
+Node.js,medium,2,9,2,20
+HTML,hard,2,10,9,20
+Data Visualization,medium,5,2,2,50
+Django,medium,3,4,6,30
+Machine Learning,hard,1,1,9,10
+C#,basic,1,5,7,10
+React,basic,3,2,2,30
+Test-Driven Development,hard,2,1,9,20
+Leadership,hard,5,3,1,50
+Ruby,hard,3,6,4,30
+Vue.js,hard,5,5,9,50
+MongoDB,hard,4,10,9,40
+Leadership,basic,4,5,10,40
+PHP,hard,1,8,1,10
+Machine Learning Fundamentals,basic,2,8,7,20
+RESTful API,basic,5,8,4,50
+Machine Learning,basic,1,7,8,10
+PostgreSQL,medium,3,9,9,30
+PHP,medium,3,7,4,30
+Angular,hard,1,6,1,10
+AWS,medium,1,7,4,10
+DevOps,medium,5,8,6,50
+Microservices,basic,1,7,8,10
+Swift,medium,4,3,8,40
+Continuous Deployment,basic,5,9,1,50
+Problem Solving,basic,1,8,10,10
+Cybersecurity,basic,2,4,4,20
+NoSQL,medium,3,3,5,30
+User Research,hard,4,1,8,40
+Communication,medium,1,3,9,10
+User Stories,hard,4,5,1,40
+Objective-C,medium,3,9,5,30
+Accessibility,medium,2,5,9,20
+GraphQL,hard,1,2,1,10
+Ruby,medium,4,8,5,40
+RESTful API,basic,5,4,5,50
+Data Science Basics,medium,4,7,6,40
+Scrum,hard,4,1,7,40
+User Stories,hard,5,6,7,50
+Technical Writing,hard,1,8,7,10
+Support,basic,1,5,9,10
+Continuous Integration,hard,1,4,8,10
+Collaboration,medium,3,5,3,30
+React,basic,5,6,7,50
+Java,hard,2,2,5,20
+Network Security,basic,5,9,8,50
+Problem Solving,medium,5,7,7,50
+NoSQL,medium,5,6,5,50
+Prototyping,hard,4,4,9,40
+Deep Learning Concepts,hard,3,2,7,30
+Penetration Testing,basic,5,8,5,50
+Support,basic,4,4,9,40
+Big Data Analytics,medium,5,9,3,50
+Docker,hard,3,5,4,30
+Documentation,basic,4,9,4,40
+Collaboration,basic,2,10,5,20
+Objective-C,basic,2,3,7,20
+Requirements Analysis,medium,3,5,9,30
+Continuous Deployment,hard,5,9,9,50
+Collaboration,hard,1,3,5,10
+Statistical Analysis,hard,5,8,9,50
+JavaScript,basic,4,8,2,40
+Problem Solving,medium,2,6,10,20
+Agile Methodologies,hard,1,8,1,10
+Responsive Design,medium,4,9,10,40
+JavaScript,hard,1,2,6,10
+Agile Product Management,medium,5,1,1,50
+RESTful API,basic,3,3,10,30
+RESTful API,medium,1,3,6,10
+C#,medium,1,2,3,10
+Requirements Analysis,basic,3,7,6,30
+Flask,basic,1,10,5,10
+Python for Data Science,hard,5,6,3,50
+AWS,medium,1,4,10,10
+Angular,medium,2,10,10,20
+Kotlin,hard,5,4,10,50
+Java,medium,4,7,4,40
+AWS,basic,2,4,9,20
+Angular,basic,1,1,10,10
+Technical Writing,medium,5,6,8,50
+Ruby,basic,3,5,3,30
+Wireframing,basic,2,6,8,20
+Behavior-Driven Development,basic,5,7,8,50
+Machine Learning Fundamentals,basic,4,3,7,40
+Python,basic,2,2,9,20
+Wireframing,hard,2,7,8,20
+Continuous Deployment,medium,4,8,5,40
+Continuous Deployment,basic,2,7,1,20
+Python,hard,3,8,6,30
+Communication,hard,3,7,5,30
+NoSQL,basic,5,10,1,50
+Penetration Testing,hard,1,8,2,10
+Angular,medium,3,6,5,30
+Prototyping,medium,4,1,6,40
+Machine Learning Fundamentals,basic,2,7,8,20
+Git,medium,5,4,6,50
+Responsive Design,hard,5,10,8,50
+Flask,medium,2,6,6,20
+PHP,hard,1,6,5,10
+MongoDB,basic,3,4,10,30
+User Research,basic,4,7,5,40
+Requirements Analysis,hard,1,7,7,10
+Behavior-Driven Development,hard,2,4,2,20
+Machine Learning Fundamentals,basic,5,7,6,50
+Information Security,medium,4,6,10,40
+Wireframing,basic,4,8,1,40
+Network Security,hard,5,2,4,50
+Ruby,medium,3,9,9,30
+Objective-C,hard,1,2,8,10
+Interaction Design,hard,5,9,9,50
+Support,medium,2,2,6,20
+Google Cloud Platform,basic,4,6,1,40
+React,medium,1,1,2,10
+Flask,basic,4,9,9,40
+Interaction Design,hard,1,1,8,10
+Python for Data Science,hard,4,8,1,40
+Data Visualization,basic,5,3,7,50
+MongoDB,basic,1,9,7,10
+Penetration Testing,medium,3,1,9,30
+Flask,hard,2,5,10,20
+Microservices,basic,2,2,7,20
+Data Science,basic,1,5,6,10
+Node.js,hard,5,2,1,50
+Communication,medium,2,7,4,20
+CI/CD,hard,3,1,1,30
+Wireframing,hard,1,9,2,10
+Big Data Analytics,hard,2,1,2,20
+AWS,basic,4,3,8,40
+Accessibility,medium,2,10,10,20
+Big Data Analytics,hard,3,4,8,30
+Docker,basic,5,8,6,50
+Swift,hard,3,7,3,30
+Scrum,basic,5,2,7,50
+MySQL,basic,1,2,5,10
+Cybersecurity,hard,4,10,2,40
+Continuous Integration,basic,2,4,8,20
+Kotlin,hard,1,9,3,10
+Data Science,medium,5,8,7,50
+Data Science,basic,1,8,7,10
+Problem Solving,basic,1,4,9,10
+Artificial Intelligence,hard,3,2,7,30
+Data Science Basics,basic,2,2,8,20
+Communication,medium,3,1,5,30
+PHP,medium,5,5,2,50
+Deep Learning Concepts,hard,1,4,9,10
+MongoDB,basic,5,9,3,50
+Data Science,hard,2,3,10,20
+HTML,medium,2,1,1,20
+Django,medium,1,9,7,10
+Wireframing,medium,1,9,8,10
+Prototyping,basic,5,8,9,50
+Angular,hard,1,5,1,10
+User Research,hard,3,2,10,30
+Problem Solving,basic,5,3,2,50
+CSS,hard,3,7,2,30
+Problem Solving,medium,5,4,2,50
+Machine Learning,basic,3,1,3,30
+PHP,basic,3,10,1,30
+Azure,medium,3,3,9,30
+Accessibility,hard,5,4,6,50
+MySQL,hard,4,6,3,40
+Machine Learning,basic,5,5,7,50
+Agile Product Management,medium,1,3,4,10
+Data Science,hard,4,7,10,40
+PHP,hard,3,7,10,30
+CSS,basic,3,7,9,30
+User Research,hard,1,7,3,10
+Wireframing,hard,5,4,1,50
+React,hard,5,6,3,50
+User Research,basic,4,6,3,40
+PostgreSQL,medium,4,1,4,40
+Prototyping,hard,1,9,5,10
+Cryptography,hard,2,9,8,20
+Docker,medium,3,4,3,30
+CSS,basic,2,10,10,20
+Support,hard,4,3,4,40
+Agile Methodologies,basic,1,10,7,10
+Business Analysis,hard,1,3,7,10
+MongoDB,hard,1,1,6,10
+Objective-C,basic,4,9,5,40
+DevOps,medium,4,2,10,40
+MongoDB,medium,1,3,5,10
+Responsive Design,basic,2,6,3,20
+Test-Driven Development,hard,5,8,7,50
+CSS,medium,2,4,7,20
+Agile Product Management,hard,3,6,7,30
+Wireframing,basic,3,5,5,30
+Responsive Design,hard,4,6,3,40
+JavaScript,medium,3,5,1,30
+Machine Learning,basic,3,9,1,30
+NoSQL,hard,1,6,9,10
+Cybersecurity,hard,5,4,9,50
+User Stories,hard,3,10,8,30
+Data Science,basic,2,8,9,20
+Responsive Design,basic,3,2,7,30
+Kotlin,basic,3,10,5,30
+Data Visualization,medium,3,7,3,30
+MongoDB,basic,5,9,4,50
+RESTful API,basic,5,7,9,50
+Artificial Intelligence,medium,2,4,3,20
+Leadership,hard,5,10,6,50
+Cryptography,basic,3,1,10,30
+Kotlin,hard,2,3,9,20
+Big Data Analytics,basic,2,5,10,20
+SQL,medium,4,10,3,40
+Collaboration,hard,3,1,1,30
+Data Science Basics,medium,5,4,9,50
+Big Data Analytics,hard,1,5,8,10
+SQL,medium,5,1,10,50
+NoSQL,medium,5,1,6,50
+Technical Writing,medium,3,10,9,30
+Java,basic,4,7,9,40
+.NET,medium,1,5,2,10
+Behavior-Driven Development,basic,4,10,2,40
+NoSQL,hard,3,4,4,30
+PostgreSQL,medium,1,7,1,10
+Business Analysis,basic,1,6,4,10
+Objective-C,hard,3,2,2,30
+Swift,basic,3,2,5,30
+Troubleshooting,basic,4,7,7,40
+JavaScript,hard,3,6,1,30
+Problem Solving,basic,5,6,6,50
+Python,basic,3,4,3,30
+Python for Data Science,hard,3,7,6,30
+SQL,medium,2,5,5,20
+Google Cloud Platform,basic,2,2,6,20
+Google Cloud Platform,hard,1,5,7,10
+PHP,basic,1,4,3,10
+Vue.js,medium,5,9,4,50
+Data Science,medium,4,7,9,40
+DevOps,medium,3,9,6,30
+Big Data Analytics,hard,5,3,4,50
+Django,basic,3,2,8,30
+Django,medium,5,7,3,50
+Data Visualization,hard,1,8,1,10
+Cryptography,basic,1,4,7,10
+Data Analysis,hard,3,8,2,30
+DevOps,hard,4,7,8,40
+Azure,basic,1,5,3,10
+Kubernetes,medium,4,9,4,40
+Problem Solving,basic,4,3,4,40
+Interaction Design,medium,3,7,4,30
+RESTful API,medium,2,7,10,20
+GraphQL,basic,3,1,5,30
+Continuous Integration,basic,5,5,3,50
+Big Data Analytics,medium,4,9,1,40
+Documentation,hard,5,9,2,50
+Continuous Deployment,hard,1,1,6,10
+C#,basic,2,9,10,20
+Continuous Deployment,medium,3,4,6,30
+Objective-C,medium,3,10,2,30
+Continuous Integration,basic,1,9,10,10
+Microservices,hard,1,7,3,10
+Kotlin,hard,5,1,10,50
+Scrum,medium,1,4,7,10
+Product Management,hard,1,9,9,10
+Agile Product Management,hard,3,8,7,30
+Cybersecurity,hard,5,9,8,50
+Microservices,basic,2,8,4,20
+Git,hard,2,2,2,20
+Python,basic,1,5,5,10
+HTML,hard,1,4,6,10
+Data Science,medium,3,7,2,30
+Vue.js,medium,4,6,5,40
+Python for Data Science,hard,4,5,9,40
+Swift,medium,3,7,1,30
+User Research,hard,4,3,6,40
+Cybersecurity,basic,1,8,9,10
+Troubleshooting,medium,2,8,3,20
+Python for Data Science,basic,2,4,3,20
+AWS,medium,5,5,3,50
+Cybersecurity,medium,4,3,2,40
+User Stories,medium,3,3,6,30
+PHP,basic,3,4,6,30
+Swift,hard,1,8,4,10
+Big Data Analytics,medium,1,5,2,10
+Interaction Design,basic,2,2,3,20
+Data Analysis,hard,4,10,4,40
+PHP,basic,4,10,1,40
+Accessibility,basic,4,10,3,40
+Agile Methodologies,basic,5,7,2,50
+Responsive Design,basic,5,4,1,50
+Support,medium,3,2,5,30
+Node.js,basic,2,7,1,20
+Containerization,hard,2,9,2,20
+Interaction Design,basic,4,2,2,40
+Test-Driven Development,basic,4,10,8,40
+Vue.js,medium,3,6,3,30
+Cybersecurity,medium,5,4,9,50
+Interaction Design,hard,4,6,7,40
+Node.js,medium,1,10,3,10
+Statistical Analysis,hard,5,10,9,50
+Information Security,basic,5,6,3,50
+Ruby,basic,3,3,7,30
+PHP,basic,5,6,9,50
+Agile Methodologies,basic,4,10,1,40
+PostgreSQL,medium,1,6,7,10
+MySQL,hard,1,8,8,10
+Big Data Analytics,medium,4,7,10,40
+Data Visualization,hard,3,6,7,30
+SQL,medium,4,5,5,40
+PHP,basic,1,2,8,10
+Machine Learning,basic,2,10,4,20
+Business Analysis,medium,4,9,2,40
+Problem Solving,basic,4,7,2,40
+Business Analysis,hard,4,5,9,40
+Continuous Deployment,medium,2,6,7,20
+Java,medium,3,1,2,30
+Node.js,basic,4,5,4,40
+Collaboration,basic,2,6,3,20
+GraphQL,medium,2,2,5,20
+UI/UX Design,basic,5,10,1,50
+Cryptography,hard,2,5,5,20
+Support,hard,3,1,2,30
+Swift,medium,2,1,1,20
+RESTful API,medium,1,7,10,10
+Product Management,basic,2,7,3,20
+NoSQL,hard,2,1,4,20
+Docker,hard,2,10,7,20
+Requirements Analysis,basic,5,7,7,50
+MongoDB,medium,2,5,9,20
+Agile Product Management,basic,3,8,2,30
+Interaction Design,hard,5,5,1,50
+Machine Learning,hard,3,8,5,30
+Scrum,medium,1,9,6,10
+GraphQL,basic,3,2,3,30
+Kotlin,hard,2,7,8,20
+Kubernetes,medium,2,7,9,20
+PostgreSQL,basic,2,10,9,20
+Wireframing,medium,2,4,8,20
+Agile Product Management,basic,3,7,5,30
+Responsive Design,medium,4,10,6,40
+Python,hard,4,10,10,40
+Communication,hard,5,1,6,50
+Continuous Integration,hard,2,1,2,20
+Containerization,basic,4,6,10,40
+Artificial Intelligence,hard,1,7,9,10
+Prototyping,medium,5,9,3,50
+HTML,medium,1,6,9,10
+Containerization,basic,2,2,6,20
+Problem Solving,hard,4,4,1,40
+Responsive Design,medium,2,9,1,20
+Machine Learning,medium,5,3,10,50
+Deep Learning Concepts,hard,3,5,8,30
+Prototyping,medium,3,7,6,30
+DevOps,basic,1,7,9,10
+Google Cloud Platform,medium,2,7,4,20
+UI/UX Design,hard,1,9,6,10
+Flask,basic,3,1,2,30
+CSS,hard,1,6,2,10
+Deep Learning Concepts,basic,4,1,7,40
+Continuous Deployment,basic,1,9,5,10
+PHP,basic,5,2,10,50
+PHP,basic,5,7,1,50
+CI/CD,hard,5,1,7,50
+Responsive Design,hard,2,5,2,20
+Data Science,medium,3,10,8,30
+Data Science,medium,2,6,5,20
+JavaScript,hard,3,10,5,30
+Penetration Testing,medium,4,3,9,40
+Communication,medium,2,6,9,20
+Penetration Testing,hard,4,10,2,40
+Product Management,medium,4,3,5,40
+Angular,basic,5,8,4,50
+HTML,basic,4,10,1,40
+HTML,basic,5,3,4,50
+Ruby,basic,3,4,8,30
+Collaboration,medium,4,7,5,40
+CI/CD,basic,4,4,10,40
+Django,medium,3,4,9,30
+Continuous Deployment,hard,2,4,2,20
+JavaScript,medium,5,3,4,50
+Agile Product Management,basic,4,10,8,40
+Git,hard,3,5,3,30
+.NET,hard,2,6,8,20
+Leadership,hard,3,2,1,30
+Machine Learning Fundamentals,hard,5,4,7,50
+UI/UX Design,hard,5,5,10,50
+Product Management,medium,3,4,8,30
+Data Science,basic,4,2,5,40
+Continuous Integration,medium,3,8,6,30
+Deep Learning Concepts,hard,1,5,7,10
+Communication,basic,4,6,3,40
+Network Security,medium,2,3,7,20
+Agile Methodologies,hard,1,6,6,10
+Deep Learning Concepts,basic,3,5,8,30
+Java,basic,1,7,10,10
+Information Security,basic,5,10,2,50
+Statistical Analysis,basic,2,5,7,20
+Test-Driven Development,hard,2,4,3,20
+Technical Writing,basic,2,6,5,20
+C#,basic,5,7,10,50
+Google Cloud Platform,medium,1,7,8,10
+Google Cloud Platform,medium,3,10,8,30
+Business Analysis,medium,4,7,10,40
+Python for Data Science,medium,2,9,1,20
+Azure,basic,5,5,6,50
+Kubernetes,basic,5,1,7,50
+UI/UX Design,medium,5,4,5,50
+Machine Learning Fundamentals,medium,2,1,3,20
+Penetration Testing,basic,5,8,1,50
+Python,medium,1,6,8,10
+Data Science,hard,2,7,1,20
+Git,medium,3,7,4,30
+Docker,basic,1,7,1,10
+HTML,basic,5,4,2,50
+Wireframing,basic,4,7,8,40
+Objective-C,medium,1,3,9,10
+Agile Product Management,basic,1,10,6,10
+CSS,basic,1,5,6,10
+Microservices,hard,2,2,6,20
+Node.js,hard,3,10,10,30
+Statistical Analysis,basic,2,6,1,20
+PostgreSQL,hard,1,4,10,10
+Data Science Basics,hard,2,9,2,20
+React,basic,2,6,7,20
+Test-Driven Development,hard,1,10,8,10
+Business Analysis,basic,2,3,8,20
+Node.js,medium,5,8,5,50
+Information Security,medium,2,9,5,20
+PostgreSQL,hard,1,6,9,10
+Penetration Testing,hard,4,10,1,40
+Behavior-Driven Development,medium,5,8,5,50
+Problem Solving,basic,2,9,2,20
+Problem Solving,medium,5,8,4,50
+Kubernetes,hard,3,3,7,30
+Problem Solving,hard,3,3,4,30
+Flask,hard,3,3,3,30
+RESTful API,medium,3,3,1,30
+Behavior-Driven Development,basic,1,2,1,10
+Prototyping,hard,5,9,9,50
+Azure,basic,5,8,4,50
+JavaScript,medium,3,4,3,30
+PostgreSQL,hard,4,10,1,40
+Data Science Basics,basic,4,5,4,40
+User Stories,medium,2,2,6,20
+Interaction Design,basic,4,8,4,40
+Scrum,hard,4,7,4,40
+Ruby,basic,3,5,7,30
+Continuous Deployment,hard,5,8,9,50
+Agile Product Management,hard,5,8,4,50
+Wireframing,basic,3,4,7,30
+RESTful API,basic,2,3,7,20
+Business Analysis,basic,1,5,2,10
+Data Science,medium,4,8,3,40
+Communication,hard,4,9,9,40
+Cryptography,medium,3,8,10,30
+Machine Learning,basic,3,6,9,30
+Data Analysis,hard,3,9,4,30
+Prototyping,basic,1,10,2,10
+Agile Product Management,hard,3,3,5,30
+React,hard,2,7,4,20
+AWS,basic,1,5,3,10
+RESTful API,hard,5,5,6,50
+Behavior-Driven Development,hard,3,8,8,30
+Python for Data Science,medium,5,1,5,50
+Problem Solving,hard,2,2,2,20
+GraphQL,hard,3,1,8,30
+Machine Learning Fundamentals,medium,4,3,10,40
+Requirements Analysis,medium,3,8,3,30
+Network Security,medium,1,9,9,10
+Agile Product Management,basic,2,9,10,20
+C#,basic,3,10,9,30
+Flask,medium,3,10,10,30
+MongoDB,basic,2,9,7,20
+.NET,basic,2,8,2,20
+Support,hard,1,4,6,10
+NoSQL,hard,1,6,4,10
+PostgreSQL,basic,5,6,9,50
+Python,medium,5,1,9,50
+Problem Solving,hard,5,4,4,50
+Continuous Integration,medium,1,7,1,10
+Responsive Design,basic,1,9,10,10
+PostgreSQL,hard,1,6,1,10
+Responsive Design,medium,2,5,1,20
+Data Science,basic,3,9,8,30
+Agile Product Management,medium,4,10,6,40
+Behavior-Driven Development,medium,4,5,1,40
+Big Data Analytics,hard,2,1,10,20
+Azure,basic,5,1,2,50
+MongoDB,basic,4,5,9,40
+Data Science,hard,3,10,8,30
+Machine Learning,hard,3,8,10,30
+Requirements Analysis,medium,4,3,10,40
+Prototyping,basic,2,7,2,20
+Prototyping,medium,2,9,9,20
+MongoDB,hard,2,6,6,20
+HTML,hard,1,10,9,10
+Git,hard,5,2,10,50
+Test-Driven Development,medium,3,1,9,30
+Accessibility,medium,2,1,2,20
+Python,basic,5,5,1,50
+Kotlin,medium,1,5,7,10
+Python,hard,4,7,4,40
+Documentation,hard,3,7,4,30
+Node.js,basic,1,3,5,10
+Responsive Design,medium,5,3,7,50
+Product Management,hard,4,4,2,40
+MongoDB,basic,1,4,8,10
+Product Management,basic,4,7,5,40
+Accessibility,basic,5,5,1,50
+Network Security,basic,5,6,9,50
+Deep Learning Concepts,medium,4,2,8,40
+Data Science Basics,basic,2,4,9,20
+DevOps,basic,3,5,3,30
+Responsive Design,hard,2,10,7,20
+Agile Methodologies,hard,5,6,4,50
+Data Science,hard,2,4,4,20
+Python for Data Science,hard,2,5,6,20
+Wireframing,medium,2,3,3,20
+Communication,basic,5,2,3,50
+MySQL,hard,2,5,2,20
+Vue.js,hard,4,9,6,40
+PostgreSQL,hard,3,7,6,30
+Objective-C,hard,3,3,10,30
+Problem Solving,basic,4,2,4,40
+Microservices,basic,2,3,7,20
+Data Analysis,medium,5,9,5,50
+MongoDB,medium,1,7,6,10
+Communication,medium,2,1,7,20
+Collaboration,basic,4,9,10,40
+Python for Data Science,medium,5,9,8,50
+Kotlin,hard,3,7,10,30
+Angular,hard,1,5,6,10
+Scrum,medium,3,1,8,30
+Machine Learning,medium,4,9,2,40
+Continuous Deployment,medium,3,4,2,30
+PostgreSQL,basic,3,8,2,30
+React,medium,5,6,10,50
+Continuous Integration,hard,4,3,9,40
+Business Analysis,hard,2,9,6,20
+Vue.js,hard,1,9,5,10
+RESTful API,basic,1,2,9,10
+CI/CD,basic,4,1,2,40
+DevOps,basic,3,9,1,30
+Product Management,basic,5,5,2,50
+Behavior-Driven Development,hard,4,8,6,40
+Statistical Analysis,medium,4,1,9,40
+Wireframing,basic,4,9,3,40
+Python,basic,2,10,8,20
+Kubernetes,basic,5,8,3,50
+Behavior-Driven Development,hard,1,6,6,10
+Support,hard,1,2,10,10
+Problem Solving,basic,4,9,1,40
+Artificial Intelligence,basic,2,1,4,20
+MySQL,medium,1,6,4,10
+.NET,basic,1,7,5,10
+.NET,hard,4,2,4,40
+Java,medium,5,10,8,50
+UI/UX Design,hard,3,3,3,30
+Penetration Testing,hard,4,2,4,40
+Collaboration,basic,5,5,6,50
+Azure,hard,1,9,2,10
+Penetration Testing,basic,5,6,4,50
+Containerization,medium,4,10,10,40
+Docker,hard,5,7,1,50
+Leadership,basic,4,7,7,40
+Continuous Deployment,basic,4,5,6,40
+Kubernetes,basic,4,9,4,40
+Test-Driven Development,hard,1,2,8,10
+Node.js,hard,4,10,7,40
+SQL,medium,3,9,5,30
+Django,hard,2,10,5,20
+Machine Learning,basic,4,5,3,40
+User Stories,hard,2,6,10,20
+Business Analysis,medium,2,3,9,20
+Kotlin,hard,2,5,1,20
+CI/CD,basic,3,8,9,30
+Vue.js,hard,3,5,4,30
+Containerization,medium,3,9,5,30
+Machine Learning Fundamentals,hard,2,9,2,20
+Information Security,hard,5,8,1,50
+SQL,medium,4,1,6,40
+Penetration Testing,medium,4,10,8,40
+Product Management,medium,5,4,6,50
+Penetration Testing,basic,3,10,7,30
+Prototyping,basic,1,5,1,10
+Flask,medium,3,10,3,30
+Data Science,medium,1,10,1,10
+Troubleshooting,medium,3,6,9,30
+Responsive Design,hard,4,8,8,40
+Interaction Design,basic,3,5,8,30
+CSS,medium,2,1,7,20
+Support,hard,1,1,8,10
+JavaScript,medium,2,10,4,20
+Agile Product Management,hard,2,2,3,20
+CI/CD,hard,2,3,7,20
+Business Analysis,medium,5,4,6,50
+User Research,basic,5,10,8,50
+Behavior-Driven Development,basic,4,3,7,40
+Data Science,medium,5,7,9,50
+Angular,medium,3,6,1,30
+Continuous Deployment,hard,2,7,8,20
+JavaScript,medium,4,2,7,40
+Containerization,medium,2,8,7,20
+Scrum,hard,1,5,4,10
+Data Visualization,hard,2,10,1,20
+Cryptography,medium,5,4,9,50
+Ruby,hard,3,8,1,30
+AWS,medium,1,3,9,10
+Deep Learning Concepts,basic,1,4,4,10
+Docker,medium,3,2,5,30
+Cryptography,medium,1,1,8,10
+Agile Product Management,basic,3,10,8,30
+Django,hard,4,1,10,40
+Penetration Testing,medium,5,3,8,50
+Google Cloud Platform,basic,4,10,7,40
+Data Visualization,hard,2,6,5,20
+Continuous Deployment,hard,5,10,3,50
+PHP,medium,2,9,5,20
+.NET,medium,3,10,3,30
+Data Science,medium,4,10,7,40
+Continuous Integration,basic,3,5,9,30
+Cryptography,medium,2,2,6,20
+Angular,hard,4,10,5,40
+CSS,medium,4,7,10,40
+Continuous Integration,hard,1,5,2,10
+Information Security,basic,2,4,2,20
+Artificial Intelligence,basic,5,4,3,50
+Django,basic,1,5,1,10
+Leadership,hard,3,6,5,30
+Product Management,basic,2,6,4,20
+Requirements Analysis,medium,2,6,8,20
+Accessibility,basic,3,1,4,30
+Kotlin,medium,4,4,7,40
+Wireframing,medium,5,2,4,50
+AWS,basic,5,2,8,50
+RESTful API,medium,5,9,4,50
+Agile Methodologies,hard,4,2,6,40
+Django,medium,3,3,5,30
+Cryptography,basic,2,7,10,20
+Big Data Analytics,basic,4,8,5,40
+Python,medium,5,7,3,50
+Docker,hard,4,8,4,40
+PostgreSQL,hard,5,9,7,50
+Ruby,hard,4,8,8,40
+Agile Product Management,basic,3,2,8,30
+Interaction Design,basic,2,7,7,20
+CI/CD,hard,4,5,7,40
+Data Science Basics,medium,4,5,2,40
+AWS,basic,3,6,7,30
+Leadership,medium,3,8,10,30
+Behavior-Driven Development,hard,3,7,6,30
+SQL,basic,1,10,1,10
+Microservices,basic,5,5,7,50
+Cryptography,hard,5,1,6,50
+HTML,basic,5,6,3,50
+Data Analysis,hard,4,8,8,40
+Machine Learning,hard,4,7,1,40
+Cybersecurity,basic,5,9,7,50
+Problem Solving,basic,2,9,9,20
+Responsive Design,basic,3,9,3,30
+Artificial Intelligence,hard,5,2,6,50
+Scrum,hard,5,9,7,50
+Accessibility,hard,4,4,3,40
+Ruby,medium,1,6,5,10
+Documentation,basic,3,9,4,30
+Problem Solving,hard,1,8,10,10
+Troubleshooting,medium,4,8,3,40
+Swift,medium,4,9,8,40
+Business Analysis,medium,4,7,4,40
+Cryptography,basic,2,5,5,20
+Data Science Basics,hard,5,5,9,50
+Angular,hard,2,4,5,20
+Continuous Deployment,hard,3,7,9,30
+MongoDB,medium,5,5,9,50
+Data Science,hard,5,8,9,50
+GraphQL,medium,1,10,6,10
+Communication,basic,4,9,8,40
+.NET,basic,1,4,9,10
+Data Visualization,hard,1,1,8,10
+Containerization,medium,2,10,4,20
+AWS,basic,5,8,4,50
+Information Security,hard,1,6,10,10
+Cryptography,basic,5,2,1,50
+Requirements Analysis,basic,2,7,6,20
+Penetration Testing,medium,3,5,10,30
+Business Analysis,basic,2,10,8,20
+Problem Solving,medium,2,10,5,20
+SQL,medium,5,9,6,50
+RESTful API,basic,1,4,1,10
+Big Data Analytics,hard,4,9,4,40
+Agile Product Management,hard,2,2,2,20
+Cryptography,medium,4,10,3,40
+Cryptography,basic,2,2,1,20
+Business Analysis,basic,4,5,6,40
+Python for Data Science,basic,4,2,7,40
+Deep Learning Concepts,hard,2,3,3,20
+DevOps,hard,3,3,10,30
+Data Science,hard,2,6,8,20
+HTML,medium,1,7,8,10
+Python for Data Science,basic,3,3,1,30
+Data Visualization,medium,3,4,1,30
+Artificial Intelligence,hard,3,5,8,30
+Node.js,medium,2,4,1,20
+Responsive Design,basic,2,1,8,20
+Responsive Design,medium,4,6,1,40
+Continuous Deployment,medium,5,5,10,50
+Product Management,hard,4,4,4,40
+Collaboration,basic,2,3,9,20
+Ruby,basic,4,4,9,40
+Data Visualization,medium,2,3,2,20
+Deep Learning Concepts,medium,4,1,1,40
+Machine Learning Fundamentals,hard,1,5,1,10
+Kotlin,basic,5,2,10,50
+.NET,basic,3,6,1,30
+Data Analysis,medium,2,4,9,20
+User Stories,medium,4,3,6,40
+Scrum,medium,2,2,1,20
+Flask,hard,2,7,5,20
+Data Science Basics,hard,4,1,8,40
+MongoDB,medium,5,10,1,50
+Data Analysis,basic,4,5,1,40
+Agile Product Management,hard,5,1,6,50
+Data Science,medium,3,7,3,30
+Wireframing,hard,5,8,10,50
+CI/CD,hard,1,7,9,10
+Django,hard,1,1,4,10
+Microservices,basic,3,4,5,30
+C#,basic,1,5,5,10
+Requirements Analysis,basic,1,2,10,10
+Leadership,medium,2,1,5,20
+SQL,basic,2,7,3,20
+Flask,medium,4,6,4,40
+HTML,medium,5,6,8,50
+AWS,hard,3,4,6,30
+SQL,basic,5,10,10,50
+Data Science Basics,hard,5,4,1,50
+MongoDB,medium,1,2,8,10
+Technical Writing,medium,5,9,8,50
+Prototyping,hard,1,7,4,10
+Java,medium,5,6,5,50
+Continuous Deployment,hard,5,3,8,50
+UI/UX Design,medium,3,5,8,30
+DevOps,medium,4,3,1,40
+Accessibility,medium,3,8,4,30
+Git,medium,2,6,3,20
+Requirements Analysis,hard,3,8,7,30
+Requirements Analysis,basic,1,7,8,10
+GraphQL,medium,2,7,6,20
+Cryptography,hard,1,2,1,10
+Documentation,basic,4,8,6,40
+Azure,hard,4,2,1,40
+Docker,hard,4,5,6,40
+Statistical Analysis,basic,3,4,8,30
+DevOps,hard,4,10,8,40
+Information Security,basic,3,7,2,30
+Continuous Integration,medium,3,4,8,30
+Docker,medium,1,7,5,10
+Python for Data Science,hard,5,2,1,50
+Troubleshooting,hard,1,10,3,10
+Python for Data Science,medium,2,6,2,20
+C#,basic,4,6,10,40
+CI/CD,hard,5,9,4,50
+UI/UX Design,hard,1,9,10,10
+Communication,hard,4,2,9,40
+Behavior-Driven Development,medium,2,6,5,20
+Data Analysis,medium,3,1,10,30
+Agile Methodologies,basic,2,3,6,20
+Penetration Testing,hard,3,9,4,30
+User Research,medium,5,5,9,50
+Artificial Intelligence,medium,1,8,5,10
+CSS,hard,2,1,7,20
+Ruby,basic,5,2,8,50
+Docker,basic,1,2,6,10
+Collaboration,hard,5,9,4,50
+UI/UX Design,basic,5,6,3,50
+HTML,basic,4,7,2,40
+Behavior-Driven Development,hard,1,2,2,10
+Ruby,medium,2,5,10,20
+Objective-C,hard,4,9,3,40
+Ruby,medium,4,2,2,40
+Information Security,hard,5,5,2,50
+User Research,hard,3,2,3,30
+Angular,basic,5,5,7,50
+DevOps,medium,1,1,9,10
+.NET,medium,3,9,8,30
+Collaboration,basic,3,2,3,30
+Collaboration,medium,5,10,9,50
+React,medium,2,10,4,20
+CSS,medium,1,3,6,10
+Data Visualization,basic,3,3,4,30
+Agile Product Management,medium,4,5,9,40
+GraphQL,hard,5,8,10,50
+Cybersecurity,hard,1,2,8,10
+Scrum,hard,1,4,4,10
+Responsive Design,hard,3,6,8,30
+Business Analysis,medium,2,5,7,20
+Business Analysis,medium,1,9,2,10
+Prototyping,medium,5,4,3,50
+Azure,basic,4,9,7,40
+Wireframing,basic,4,8,8,40
+RESTful API,basic,5,4,2,50
+GraphQL,hard,4,3,1,40
+.NET,basic,5,8,2,50
+Statistical Analysis,medium,2,9,1,20
+CI/CD,hard,2,10,5,20
+Continuous Integration,basic,2,4,4,20
+Wireframing,medium,3,1,4,30
+MySQL,hard,4,2,4,40
+JavaScript,basic,2,4,8,20
+Responsive Design,hard,5,3,5,50
+PostgreSQL,medium,4,5,6,40
+Behavior-Driven Development,medium,5,8,10,50
+CSS,medium,5,7,4,50
+Information Security,basic,5,2,3,50
+Prototyping,basic,4,8,4,40
+Agile Methodologies,basic,1,3,4,10
+Wireframing,basic,2,5,7,20
+Business Analysis,medium,1,10,2,10
+MySQL,medium,4,1,1,40
+UI/UX Design,hard,4,1,3,40
+HTML,hard,3,7,2,30
+Kotlin,medium,4,8,2,40
+Communication,hard,5,6,2,50
+CI/CD,medium,5,5,10,50
+RESTful API,basic,4,8,8,40
+Requirements Analysis,basic,5,8,5,50
+Vue.js,basic,5,9,8,50
+Continuous Integration,basic,4,2,2,40
+Python,hard,1,5,9,10
+Node.js,hard,2,6,7,20
+GraphQL,basic,3,7,1,30
+Python for Data Science,medium,4,1,9,40
+User Research,basic,1,10,10,10
+MySQL,basic,3,3,10,30
+Kubernetes,medium,2,6,8,20
+PostgreSQL,basic,1,7,1,10
+Data Analysis,medium,5,2,8,50
+Flask,basic,5,4,1,50
+PostgreSQL,medium,1,5,3,10
+Wireframing,basic,2,7,6,20
+DevOps,hard,4,3,1,40
+Accessibility,medium,1,10,6,10
+Python,hard,4,8,9,40
+Data Science Basics,medium,4,4,10,40
+Prototyping,basic,5,7,10,50
+.NET,medium,1,10,4,10
+Deep Learning Concepts,medium,2,10,4,20
+Agile Product Management,hard,2,6,5,20
+Artificial Intelligence,medium,4,1,3,40
+Continuous Deployment,hard,4,8,10,40
+Statistical Analysis,medium,3,7,2,30
+Requirements Analysis,basic,3,6,8,30
+Google Cloud Platform,basic,2,10,2,20
+Technical Writing,basic,1,1,6,10
+Support,basic,5,5,2,50
+Network Security,hard,1,5,9,10
+Business Analysis,medium,5,9,10,50
+SQL,basic,1,6,6,10
+Cybersecurity,hard,5,9,2,50
+Continuous Integration,hard,5,5,10,50
+Vue.js,hard,1,2,7,10
+Information Security,hard,4,10,7,40
+Deep Learning Concepts,basic,5,6,3,50
+JavaScript,basic,2,3,10,20
+JavaScript,medium,4,2,1,40
+Kubernetes,medium,1,9,5,10
+Requirements Analysis,hard,3,5,2,30
+Requirements Analysis,basic,5,5,4,50
+Big Data Analytics,hard,3,3,8,30
+Communication,hard,3,6,10,30
+Information Security,medium,3,3,2,30
+Docker,hard,4,8,5,40
+DevOps,basic,2,6,3,20
+Containerization,hard,4,8,9,40
+Statistical Analysis,hard,2,1,4,20
+DevOps,basic,3,3,8,30
+Azure,hard,5,4,7,50
+NoSQL,basic,2,9,2,20
+Documentation,medium,2,7,1,20
+Microservices,hard,4,5,2,40
+GraphQL,medium,2,2,7,20
+Continuous Deployment,medium,4,5,3,40
+Machine Learning Fundamentals,hard,3,6,9,30
+Penetration Testing,basic,4,5,1,40
+CSS,basic,2,5,9,20
+HTML,basic,1,3,3,10
+Continuous Integration,basic,4,10,8,40
+React,medium,4,1,9,40
+Machine Learning,hard,2,3,6,20
+Problem Solving,hard,2,8,6,20
+RESTful API,medium,5,5,2,50
+Requirements Analysis,basic,5,6,6,50
+Google Cloud Platform,hard,1,9,1,10
+Big Data Analytics,hard,5,7,9,50
+NoSQL,hard,4,7,7,40
+Flask,basic,1,10,10,10
+UI/UX Design,medium,4,5,10,40
+Continuous Deployment,basic,5,2,3,50
+DevOps,medium,4,7,3,40
+Azure,hard,3,5,5,30
+Statistical Analysis,hard,2,5,5,20
+Python for Data Science,hard,1,9,1,10
+Agile Methodologies,hard,2,5,10,20
+Problem Solving,medium,1,9,8,10
+HTML,hard,5,3,5,50
+Behavior-Driven Development,medium,2,4,2,20
+Ruby,hard,2,10,7,20
+Java,basic,1,10,6,10
+Business Analysis,basic,2,3,7,20
+Data Science Basics,basic,5,10,8,50
+Continuous Integration,hard,2,3,4,20
+Deep Learning Concepts,medium,4,7,2,40
+CI/CD,medium,5,5,6,50
+Statistical Analysis,hard,5,9,10,50
+Cryptography,medium,4,1,1,40
+Behavior-Driven Development,hard,5,7,9,50
