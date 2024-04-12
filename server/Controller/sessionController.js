@@ -38,9 +38,6 @@ exports.createTrainingSession = async (req, res) => {
   }
 };
 
-
-
-
 exports.getTrainingSession = async (req, res) => {
   try {
     // Retrieve all training programs from the database
@@ -52,6 +49,32 @@ exports.getTrainingSession = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+exports.createMultipleSession= async (req, res) => {
+  try {
+      const { formData, traineeIds } = req.body;
+
+      // Iterate over the trainee IDs and create a session for each trainee
+      const sessions = traineeIds.map(traineeId => ({
+          programId: formData.programId,
+          programName: formData.programName,
+          Startdatetime: formData.Startdatetime,
+          Enddatetime: formData.Enddatetime,
+          venue: formData.venue,
+          trainee: traineeId,
+          trainers: formData.trainers, // Assuming trainers are the same for all sessions
+          status: formData.status
+      }));
+
+      // Create sessions in the database
+      const createdSessions = await Session.insertMany(sessions);
+      res.status(201).json(createdSessions);
+  } catch (error) {
+      console.error("Error creating sessions:", error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 
 
 

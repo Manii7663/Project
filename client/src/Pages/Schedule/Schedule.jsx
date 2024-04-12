@@ -124,23 +124,6 @@ const Schedule = () => {
     setOpenDialog(false); // Close the dialog
   };
 
-  const handleChange = (event) => {
-    // Get the selected training
-    const selectedTrainingId = event.target.value;
-    const selectedTraining = trainings.find(training => training._id === selectedTrainingId);
-    console.log(selectedTrainingId)
-    console.log(selectedTraining)
-
-    // Update the formData with selected training details
-    setFormData({
-      ...formData,
-      programName: selectedTraining,
-      programId: selectedTrainingId
-    });
-
-    // Update the selectedTraining state
-    setSelectedTraining(selectedTraining);
-  };
 
 
   const fetchUsersByRole = async (role) => {
@@ -169,51 +152,55 @@ const Schedule = () => {
     setAddEventForm(!AddEventForm);
   };
 
-  const handleAddNewEvent = async () => {
-    
-    console.log(selectedTraining);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log("In handle change")
+
+    const currentTraining = trainings.find(training => training._id === value)
+    setSelectedTraining(value)
+    console.log(selectedTraining)
+    console.log("Before_formData:", formData);
     setFormData({
       ...formData,
-      programName: trainings.find(training => training._id === selectedTraining).programName,
-    });
-    console.log("formData:",formData);
-    return
+      programId: value,
+      programName: currentTraining.programName,
+      trainers: currentTraining.trainerId
+    })
+  };
+
+
+  const handleAddNewEvent = async () => {
+    console.log(formData)
+
     try {
       // Fetch users with the selected trainee role
       const traineeRole = formData.trainee;
       const traineeUsers = await fetchUsersByRole(traineeRole);
+      console.log(traineeUsers)
 
+      // Call API to create multiple sessions
+      const response = await fetch('http://localhost:3001/create-multiple-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formData: formData,
+          traineeIds: traineeUsers.map(user => user._id),
+        }),
+      });
 
-      // Iterate over the fetched trainee users to create a session for each user
-      for (const user of traineeUsers) {
-        const sessionData = {
-          ...formData, // Use existing formData
-          trainee: user._id, // Assuming the user ID is used as trainee ID
-          status: 'pending' // Assuming the default status is 'pending'
-        };
-        console.log(sessionData)
-
-        // Send POST request to create a session
-        const response = await fetch('http://localhost:3001/create-training-session', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(sessionData),
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to create session');
-        }
+      if (!response.ok) {
+        throw new Error('Failed to create sessions');
       }
 
-      // All sessions created successfully
-      console.log('Sessions created successfully');
       // Reset form state or handle success as needed
+      console.log('Sessions created successfully');
     } catch (error) {
       // Handle error...
-      console.error('Error creating sessions:', error);
+      console.error('Error:', error);
     }
+
   };
 
 
@@ -336,11 +323,12 @@ const Schedule = () => {
               <Select
                 labelId="training-select-label"
                 id="training-select"
+                name="Training"
                 value={selectedTraining}
-                onChange={(e)=>setSelectedTraining(e.target.value )}
+                onChange={handleChange}
               >
                 {trainings.map(training => (
-                  <MenuItem key={training._id} value={training._id} >
+                  <MenuItem key={training._id} value={training._id}>
                     {training.programName}
                   </MenuItem>
                 ))}
@@ -354,11 +342,12 @@ const Schedule = () => {
               <InputLabel>Trainees</InputLabel>
               <Select
                 value={formData.trainee}
+                name="trainee"
                 onChange={(e) => setFormData({ ...formData, trainee: e.target.value })}
                 required
               >
                 {["Employee", "Intern"].map((role) => (
-                  <MenuItem key={role} value="Inter">
+                  <MenuItem key={role} value={role}>
                     {role}
                   </MenuItem>
                 ))}
@@ -367,6 +356,7 @@ const Schedule = () => {
 
             <TextField
               id="Venue"
+              name="venue"
               label="Venue"
               type="text"
               fullWidth
@@ -376,6 +366,7 @@ const Schedule = () => {
 
             <TextField
               id="Startdatetime"
+              name="Startdatetime"
               label="Start Date & Time"
               type="datetime-local"
               fullWidth
@@ -390,6 +381,7 @@ const Schedule = () => {
 
             <TextField
               id="Enddatetime"
+              name="Enddatetime"
               label="End Date & Time"
               type="datetime-local"
               fullWidth

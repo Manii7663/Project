@@ -5,7 +5,7 @@ const {passwordMail,newUser,getUsers,getUser,updateUser} =require('../Controller
 const {resetPassword,forgetPassword}=require('../Controller/passwordController')
 const {newBatch} = require('../Controller/batchController')
 const {createTrainingProgram,createCOE,getTrainingPrograms,getCOE}=require('../Controller/trainingController')
-const {createTrainingSession,getTrainingSession} =require('../Controller/sessionController')
+const {createTrainingSession,getTrainingSession,createMultipleSession} =require('../Controller/sessionController')
 const {getEmployeeIds} = require("../Controller/empController")
 const {createAssessmentScore,getAssessmentScores} = require('../Controller/assesmentController')
 
@@ -32,6 +32,7 @@ router.get('/get-coe',getCOE)
 router.post('/create-training-session',createTrainingSession)
 router.post('/add-score',createAssessmentScore)
 router.get('/get-training-sessions',getTrainingSession)
+router.post('/create-multiple-session',createMultipleSession)
 
 router.get('/get-emp-ids',getEmployeeIds)
 
