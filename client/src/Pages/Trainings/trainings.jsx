@@ -1,27 +1,48 @@
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Box, Button, Typography, useTheme, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from "@mui/material";
 import { tokens } from "../../context/theme";
 import { AddCircleOutline } from "@mui/icons-material";
-import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import Header from "../../Components/Header";
+import { useAuth } from "../../context/authContext";
+
 
 
 const Trainings = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-    const navigate = useNavigate();
+    const { User } = useAuth();
+    const [openDialog, setOpenDialog] = useState(false);
+    const role = (User) ? User.role : null;
 
-    const handleAddCoe = () => {
-        // Redirect to the page for adding a new member
-        navigate("/addCoe");
-    };
+    const [formData, setFormData] = useState({
+        coeName: "",
+        description: "",
+        coeHead: User?User._id:""
+    });
+
+    useEffect(() => {
+        setFormData({
+            ...formData,
+            coeHead: User?User._id:""
+        })
+    }, [])
+
+
 
     const CustomLink = ({ ...props }) => (
         <Link {...props} style={{ textDecoration: 'none' }}>
 
         </Link>
     );
+
+    const handleopenDialog = () => {
+        setOpenDialog(true)
+    }
+
+    const handlecloseDialog = () => {
+        setOpenDialog(false)
+    }
 
     const [Coes, setCoes] = useState([]);
 
@@ -32,19 +53,46 @@ const Trainings = () => {
             .catch((error) => console.error("Error fetching COE data", error))
     }, []);
 
+    const handleSubmit = async () => {
+        console.log(formData);
+    
+        try {
+            const response = await fetch('http://localhost:3001/create-coe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+    
+                },
+                body: JSON.stringify(formData),
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to submit form');
+            }
+    
+            console.log('Form submitted successfully');
+            window.location.reload();
+            // Optionally, you can handle the response here
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            // Handle errors here
+        }
+    };
+    
+
     return (
         <Box m="20px">
             {/* HEADER */}
-            <Box  display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-                <Header title={"TRAININGS"}/>
-                <Button
-                    onClick={handleAddCoe}
+            <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+                <Header title={"TRAININGS"} />
+                {role === "Admin" && <Button
+                    onClick={handleopenDialog}
                     variant="contained"
                     color="primary"
                     startIcon={<AddCircleOutline />}
                 >
                     Add
-                </Button>
+                </Button>}
             </Box>
 
             {/* MAIN CONTENT  */}
@@ -67,6 +115,44 @@ const Trainings = () => {
                     </Box>
                 ))}
             </Box>
+
+            {/* COE Form Dialog */}
+            <Dialog style={{ padding: '10px' }} open={openDialog} onClose={handlecloseDialog}>
+                <DialogTitle>Add COE</DialogTitle>
+                <DialogContent>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="coeName"
+                        label="COE Name"
+                        type="text"
+                        fullWidth
+                        value={formData.coeName}
+                        onChange={(e) => setFormData({ ...formData, coeName: e.target.value })}
+                    />
+                    <TextField
+                        // Adjust the height here
+                        margin="dense"
+                        id="description"
+                        label="Description"
+                        type="text"
+                        fullWidth
+                        multiline
+                        value={formData.description}
+                        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                    />
+
+
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handlecloseDialog} color="primary">
+                        Cancel
+                    </Button>
+                    <Button onClick={handleSubmit} color="primary">
+                        Submit
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </Box>
     );
 };
