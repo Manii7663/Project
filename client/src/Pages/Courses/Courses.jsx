@@ -8,53 +8,25 @@ import { useAuth } from "../../context/authContext";
 
 
 
-const Trainings = () => {
+const Courses = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const { User } = useAuth();
     const [openDialog, setOpenDialog] = useState(false);
     const role = (User) ? User.role : null;
-    const [users, setUsers] = useState([]);
 
     const [formData, setFormData] = useState({
         coeName: "",
         description: "",
-        coeHead: User ? User._id : ""
+        coeHead: User?User._id:""
     });
 
     useEffect(() => {
         setFormData({
             ...formData,
-            coeHead: User ? User._id : ""
+            coeHead: User?User._id:""
         })
     }, [])
-
-
-
-    const [userNames, setUserNames] = useState({});
-
-    useEffect(() => {
-        // Fetch users from the backend API
-        fetch("http://localhost:3001/get-users")
-            .then((response) => response.json())
-            .then((data) => {
-                // Create a mapping from user IDs to names
-                const names = {};
-                data.forEach(user => {
-                    names[user._id] = user.name; // Assuming you have a 'name' field in your user schema
-                });
-                setUserNames(names);
-                setUsers(data);
-            })
-            .catch((error) => console.error("Error fetching users:", error));
-    }, []);
-
-    useEffect(() => {
-        fetch("http://localhost:3001/get-coe")
-            .then((response) => response.json())
-            .then((data) => setCoes(data))
-            .catch((error) => console.error("Error fetching COE data", error))
-    }, []);
 
 
 
@@ -74,25 +46,30 @@ const Trainings = () => {
 
     const [Coes, setCoes] = useState([]);
 
-
+    useEffect(() => {
+        fetch("http://localhost:3001/get-coe")
+            .then((response) => response.json())
+            .then((data) => setCoes(data))
+            .catch((error) => console.error("Error fetching COE data", error))
+    }, []);
 
     const handleSubmit = async () => {
         console.log(formData);
-
+    
         try {
             const response = await fetch('http://localhost:3001/create-coe', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-
+    
                 },
                 body: JSON.stringify(formData),
             });
-
+    
             if (!response.ok) {
                 throw new Error('Failed to submit form');
             }
-
+    
             console.log('Form submitted successfully');
             window.location.reload();
             // Optionally, you can handle the response here
@@ -101,13 +78,13 @@ const Trainings = () => {
             // Handle errors here
         }
     };
-
+    
 
     return (
         <Box m="20px">
             {/* HEADER */}
             <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-                <Header title={"TRAININGS"} />
+                <Header title={"Courses"} />
                 {role === "Admin" && <Button
                     onClick={handleopenDialog}
                     variant="contained"
@@ -134,7 +111,7 @@ const Trainings = () => {
                     >
                         <Typography variant="h5" fontWeight="bold" gutterBottom>{coe.coeName}</Typography>
                         <Typography variant="subtitle1" mb={2}>{coe.description}</Typography>
-                        <Typography variant="body2" position="absolute" bottom="10px" right="10px">COE Head: {userNames[coe.coeHead] || 'Unknown'}</Typography>
+                        <Typography variant="body2" position="absolute" bottom="10px" right="10px">COE Head: {coe.coeHead}</Typography>
                     </Box>
                 ))}
             </Box>
@@ -180,4 +157,4 @@ const Trainings = () => {
     );
 };
 
-export default Trainings;
+export default Courses;

@@ -1,86 +1,61 @@
 import React, { useState, useEffect } from 'react';
-import { CircularProgress, Card, Typography, Box } from '@mui/material';
+import { Box, Typography, LinearProgress,useTheme } from '@mui/material';
+import Header from '../../Components/Header';
 import { useAuth } from '../../context/authContext';
-import { ResponsivePie } from '@nivo/pie'; // Import the ResponsivePie component
+import { tokens } from "../../context/theme";
 
 const MyProgress = () => {
   const { User } = useAuth();
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   const [sessions, setSessions] = useState([]);
-  const [scores, setScores] = useState([]);
-  const [pieData, setPieData] = useState([]); // State to hold pie chart data
+  const [pendingPercentage, setPendingPercentage] = useState(0);
+  const [completedPercentage, setCompletedPercentage] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        // Fetch sessions data
-        const sessionsResponse = await fetch('http://localhost:3001/get-training-sessions');
-        if (sessionsResponse.ok) {
-          const sessionsData = await sessionsResponse.json();
-          setSessions(sessionsData);
-        } else {
-          console.error('Failed to fetch sessions data');
-        }
-
-        // Fetch scores data
-        const scoresResponse = await fetch('http://localhost:3001/get-ass-scores');
-        if (scoresResponse.ok) {
-          const scoresData = await scoresResponse.json();
-          setScores(scoresData);
-        } else {
-          console.error('Failed to fetch scores data');
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
+      const sessionsResponse = await fetch('http://localhost:3001/get-training-sessions');
+      if (sessionsResponse.ok) {
+        const sessionsData = await sessionsResponse.json();
+        setSessions(sessionsData);
+      } else {
+        console.error('Failed to fetch sessions data');
       }
     };
 
     fetchData();
   }, []);
 
-  // Calculate percentage of work pending
-  const calculateWorkPendingPercentage = () => {
-    const pendingSessions = sessions.filter(session => session.status === 'pending');
-    const totalSessions = sessions.length;
-    return ((pendingSessions.length / totalSessions) * 100).toFixed(2);
-  };
-
-  // Calculate data for the pie chart
-  const calculatePieData = () => {
-    const pendingPercentage = calculateWorkPendingPercentage();
-    const completedPercentage = 100 - pendingPercentage;
-
-    return [
-      { id: 'Pending', value: Number(pendingPercentage) },
-      { id: 'Completed', value: Number(completedPercentage) },
-    ];
-  };
-
   useEffect(() => {
-    // Update pie data when sessions change
-    setPieData(calculatePieData());
+    const calculateWorkProgress = () => {
+      const pendingSessions = sessions.filter(session => session.status === 'pending');
+      const completedSessions = sessions.filter(session => session.status === 'completed');
+      const totalSessions = sessions.length;
+
+      const pendingPercentage = ((pendingSessions.length / totalSessions) * 100).toFixed(2);
+      const completedPercentage = ((completedSessions.length / totalSessions) * 100).toFixed(2);
+
+      setPendingPercentage(pendingPercentage);
+      setCompletedPercentage(completedPercentage);
+    };
+
+    calculateWorkProgress();
   }, [sessions]);
 
   return (
     <Box m="20px">
+      <Header title={"My Progress"} />
       <Box>
-      <Typography variant="h5" gutterBottom>Work Pending</Typography>
-      <Box margin="10px" padding="10px" display={"flex"} alignItems={"center"}> {/* Adjust height and width as needed */}
-        <ResponsivePie
-          data={pieData}
-          innerRadius={0.5}
-          padAngle={0.7}
-          cornerRadius={3}
-          borderWidth={1}
-          borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}
-          sliceLabel={({ value }) => `${value}%`}          
-          animate={true}
-          motionStiffness={90}
-          motionDamping={15}
-          radialLabelsTextFormatter={value => value.id} // Custom label formatter
-        />
+        <Typography variant="h5" gutterBottom>Work Progress</Typography>
+        <Box margin="10px" padding="10px">
+          <Typography variant="subtitle1">Pending: {pendingPercentage}%</Typography>
+          <LinearProgress variant="determinate" value={parseFloat(pendingPercentage)} color="warning" />
+        </Box>
+        <Box margin="10px" padding="10px">
+          <Typography variant="subtitle1">Completed: {completedPercentage}%</Typography>
+          <LinearProgress variant="determinate" value={parseFloat(completedPercentage)} color="success" />
+        </Box>
       </Box>
-      </Box>
-      {/* Add other progress components here */}
     </Box>
   );
 };

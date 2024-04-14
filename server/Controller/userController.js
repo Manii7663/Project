@@ -143,17 +143,31 @@ exports.getUser = async (req, res) => {
 };
 
 exports.updateUser = async (req, res) => {
-  const userId = req.params.userId;
+  console.log("in api")
   const updatedUser = req.body; // Assuming the updated user data is sent in the request body
-  console.log(userId)
   console.log(updatedUser)
   
   try {
-    const user = await User.findByIdAndUpdate(userId, updatedUser, { new: true });
+    const user = await User.findByIdAndUpdate(updatedUser._id, updatedUser, { new: true });
     res.status(200).json(user);
   } catch (error) {
     console.error('Error updating user:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+exports.deleteUser = async (req, res) => {
+  const userId = req.params._id;
+  
+  try {
+    // Delete user from the database
+    await User.findByIdAndDelete(userId);
+    
+    res.status(200).json({ message: 'User deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting user:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 

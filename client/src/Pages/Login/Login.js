@@ -33,7 +33,9 @@ function Login() {
         
         if (user) {
           localStorage.setItem('user', user);
+          window.location.reload();
           navigate("/");
+          
 
         } else {
           console.error("user not received in response.");

@@ -3,13 +3,17 @@ import { Grid, Typography, Box, Button, TextField } from '@mui/material';
 import axios from 'axios';
 import EditIcon from '@mui/icons-material/Edit';
 import Header from "../../Components/Header";
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/authContext';
 
 const UserProfile = () => {
     const [user, setUser] = useState(null);
     const [editing, setEditing] = useState(false);
     const { userId } = useParams();
     const [editedUser, setEditedUser] = useState({});
+    const {User}=useAuth();
+
+    const navigate=useNavigate();
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -41,21 +45,26 @@ const UserProfile = () => {
 
     const handleSubmit = async () => {
         try {
-            console.log(editedUser)
-            const response = await axios.put(`http://localhost:3001/update-user/${user._id}`, editedUser);
+            console.log(editedUser);
+            const response = await axios.put(`http://localhost:3001/update-user`, editedUser);
+    
             console.log(response.data);
             setUser(editedUser); // Update user state with edited data
             setEditing(false); // Exit editing mode
+            if(userId !== User.id)
+            {
+                navigate("/users")
+            }
         } catch (error) {
             console.error('Error updating user data:', error);
         }
     };
-
+    
     return (
         <Box m="20px">
             <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
                 <Header title={"PROFILE"} />
-                {user && user.role === 'Admin' && (
+                {user && (
                     <Button
                         onClick={handleEdit}
                         variant="contained"

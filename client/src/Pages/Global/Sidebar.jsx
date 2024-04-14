@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -9,8 +9,13 @@ import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import SchoolIcon from '@mui/icons-material/School';
+import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
+
+
+
 import { useAuth } from "../../context/authContext";
 
 
@@ -43,6 +48,32 @@ const Sidebar = () => {
 
     const role =(User)?User.role:null;
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+          setIsMobile(window.innerWidth < 900); // Adjust the breakpoint as needed
+        };
+        window.addEventListener("resize", handleResize);
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }, []);
+
+
+      useEffect(()=> {
+        setIsCollapsed(isMobile);
+      },[isMobile])
+
+      const sidebarStyles = {
+        height: "100vh",
+        overflowY: "auto",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between"
+    };
+
+
     return (
         <Box
             sx={{                
@@ -63,7 +94,8 @@ const Sidebar = () => {
                 },
             }}
         >
-            <ProSidebar collapsed={isCollapsed} width="250px">
+            <ProSidebar collapsed={isCollapsed} style={sidebarStyles}
+             width="250px">
                 <Menu iconShape="square">
                     {/* LOGO AND MENU ICON */}
                     <MenuItem
@@ -90,7 +122,7 @@ const Sidebar = () => {
                                 <img alt="Logo"
                                     width="100px"
                                     height="100px"
-                                    src={'./logo.png'}
+                                    src={"/logo.png"}
                                     style={{ cursor: "pointer", borderRadius: "50%" }} />
                             </Box>
                             <Box textAlign={"center"}>
@@ -137,7 +169,7 @@ const Sidebar = () => {
                             <Item
                                 title="Assessment Score"
                                 to="/assesment-scores"
-                                icon={<HomeOutlinedIcon />}
+                                icon={<AssessmentOutlinedIcon />}
                                 selected={selected}
                                 setSelected={setSelected}
                             />
@@ -146,7 +178,7 @@ const Sidebar = () => {
                             <Item
                                 title="My Progress"
                                 to="/my-progress"
-                                icon={<HomeOutlinedIcon />}
+                                icon={<TrendingUpOutlinedIcon />}
                                 selected={selected}
                                 setSelected={setSelected}
                             />
@@ -166,54 +198,21 @@ const Sidebar = () => {
                             <Item
                                 title="Trainings"
                                 to="/trainings"
-                                icon={<PeopleOutlinedIcon />}
+                                icon={<SchoolIcon />}
                                 selected={selected}
                                 setSelected={setSelected}
                             />
                         {role === 'Admin' && (
                             <Item
                                 title="Reports & Analytics"
-                                to="/contacts"
+                                to="/reports"
                                 icon={<ContactsOutlinedIcon />}
                                 selected={selected}
                                 setSelected={setSelected}
                             />
                         )}
-                        {role !== 'Admin' && (
-                            <Item
-                                title="My Courses"
-                                to="/my-courses"
-                                icon={<HomeOutlinedIcon />}
-                                selected={selected}
-                                setSelected={setSelected}
-                            />
-                        )}
-                        {role === 'Admin' && (
-                            <Item
-                                title="Assessments"
-                                to="/assessments"
-                                icon={<ReceiptOutlinedIcon />}
-                                selected={selected}
-                                setSelected={setSelected}
-                            />
-                        )}
-                        {role === 'Admin' && (
-                        <Item
-                            title="Courses"
-                            to="/courses"
-                            icon={<PeopleOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
-                        )}
-                
-                        <Item
-                            title="FAQ Page"
-                            to="/faq"
-                            icon={<HelpOutlineOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
+                    
+    
 
 
                     </Box>

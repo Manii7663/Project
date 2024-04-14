@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { useAuth } from "../../context/authContext";
-import { Box } from "@mui/material";
+import { Box,useTheme } from "@mui/material";
 import Header from "../../Components/Header";
+import { tokens } from "../../context/theme";
 
 const AssessmentScorePage = () => {
-  const { User } = useAuth(); // Assuming useAuth provides the User object with userId
+  const { User } = useAuth(); 
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
   const [assessmentScores, setAssessmentScores] = useState([]);
 
@@ -41,7 +44,7 @@ const AssessmentScorePage = () => {
   const columns = [
     { field: "id", headerName: "ID", flex: 1 }, // Hide the id column
     { field: "sessionName", headerName: "Assessment Name", flex: 2 },
-    { field: "totalScore", headerName: "Max Score", flex: 1 },
+    { field: "maxScore", headerName: "Max Score", flex: 1 },
     { field: "score", headerName: "Score", flex: 1 },
   ];
 

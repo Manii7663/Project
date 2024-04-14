@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { logIn,sendOTP } = require('../Controller/authController');
-const {passwordMail,newUser,getUsers,getUser,updateUser} =require('../Controller/userController');
+const {passwordMail,newUser,getUsers,getUser,updateUser,deleteUser} =require('../Controller/userController');
 const {resetPassword,forgetPassword}=require('../Controller/passwordController')
 const {newBatch} = require('../Controller/batchController')
 const {createTrainingProgram,createCOE,getTrainingPrograms,getCOE}=require('../Controller/trainingController')
@@ -17,7 +17,8 @@ router.post('/send-email',passwordMail);
 router.post('/new-user', newUser);
 router.get('/get-users', getUsers);
 router.get('/get-user/:userId', getUser);
-router.put('/update-user/:userId', updateUser);
+router.put('/update-user', updateUser);
+router.delete('/delete-user/:_id', deleteUser);
 
 router.post('/reset-password/:id/:token',resetPassword);
 router.post('/forget-password',forgetPassword);

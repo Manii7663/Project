@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
-import { FormControl, InputLabel, MenuItem, Select, TableCell, TableRow } from '@mui/material';
+import { Box } from '@mui/material';
+import Header from '../../Components/Header';
 
 const TrainingDetails = () => {
   const [trainings, setTrainings] = useState([]);
-  
-  const {coeId}=useParams();
+
+  const { coeId } = useParams();
 
   // Fetch trainings data based on COE ID
   useEffect(() => {
@@ -28,40 +29,35 @@ const TrainingDetails = () => {
         console.error('Error fetching trainings data:', error);
       }
     };
-    
+
     fetchTrainings();
   }, []);
-   // Fetch data when COE ID changes
+  // Fetch data when COE ID changes
 
   // Define columns for the DataGrid
   const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'programName', headerName: 'Program Name', width: 200 },
-    { field: 'description', headerName: 'Description', width: 400 },
-    
+    { field: 'id', headerName: 'ID' },
+    { field: 'programName', headerName: 'Program Name', flex: 2 },
+    { field: 'description', headerName: 'Description',flex: 2 },
+
   ];
 
-  // Handler function for trainer ID change
-  const handleTrainerIdChange = (event, rowId) => {
-    const { value } = event.target;
-    // Update the trainersId in your data state
-    const updatedTrainings = trainings.map((training) =>
-      training.id === rowId ? { ...training, trainersId: value } : training
-    );
-    setTrainings(updatedTrainings);
-  };
-
   return (
-    <div style={{ height: '60%', width: '100%' }}>
-      <DataGrid
-        rows={trainings}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5, 10, 20]}
-        checkboxSelection
-        disableSelectionOnClick
-      />
-    </div>
+    <Box m="10px 0px">
+      <Header title={"Training"} />
+      <Box
+        width="100%"
+        height="100%"
+      >
+        <DataGrid
+          rows={trainings}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5, 10, 20]}
+          disableSelectionOnClick
+        />
+      </Box>
+    </Box>
   );
 };
 

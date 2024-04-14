@@ -30,12 +30,6 @@ const Users = () => {
     { field: "email", headerName: "Email", flex: 1 },
     { field: "Designation", headerName: "Designation", flex: 1 },
     {
-      field: "createdAt",
-      headerName: "Created At",
-      type: "date",
-      valueGetter: (value) => value && new Date(value),
-    },
-    {
       field: "role",
       headerName: "Role",
       flex: 1,
@@ -69,10 +63,15 @@ const Users = () => {
       headerName: "Actions",
       sortable: false,
       width: 150,
-      renderCell: () => (
+      renderCell: (params) => (
         <Box display="flex" alignItems="center" justifyContent="center" m="10px 0 0 0">
-          <Button startIcon={<EditOutlined />} onClick={handleEditClick} sx={{ color: '#1976d2' }} />
-          <Button startIcon={<DeleteOutline />} onClick={handleDeleteClick} sx={{ color: '#f44336' }} />
+          <Button 
+            startIcon={<EditOutlined />} 
+            onClick={() => handleEditClick(params)} 
+            
+            sx={{ color: '#1976d2' }} 
+          />
+          <Button startIcon={<DeleteOutline />} onClick={() => handleDeleteClick(params)} sx={{ color: '#f44336' }} />
         </Box>
       ),
     },
@@ -84,13 +83,38 @@ const Users = () => {
     navigate("/adduser");
   };
 
-  const handleEditClick = () => {
-    // Handle edit button click
+  const handleEditClick = (params) => {
+    const userId = params.row.id; // Assuming 'id' is the field containing the userId
+    navigate(`/userprofile/${userId}`);
+  };
+  
+  const deleteUser = (_id) => {
+    fetch(`http://localhost:3001/delete-user/${_id}`, {
+      method: 'DELETE',
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle successful deletion, e.g., remove the user from the local state
+      setUsers(prevUsers => prevUsers.filter(user => user._id !== _id));
+      alert('User deleted successfully!');
+    })
+    .catch(error => {
+      console.error('Error deleting user:', error);
+      alert('Error deleting user. Please try again.');
+    });
   };
 
-  const handleDeleteClick = () => {
-    // Handle delete button click
+  const handleDeleteClick = (params) => {
+    const _id = params.row._id; // Assuming 'id' is the field containing the userId
+    const userName = params.row.name; // Assuming 'name' is the field containing the userName
+  
+    const userConfirmed = window.confirm(`Do you really want to delete ${userName}?`);
+    
+    if (userConfirmed) {
+      deleteUser(_id);
+    }
   };
+  
 
   return (
     <Box  m="20px 10px">

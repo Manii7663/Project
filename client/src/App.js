@@ -17,47 +17,71 @@ import AuthStatus from "./Components/AuthStatus";
 import AssesmentScore from './Pages/AssesmentScore/AssesmentScore';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyProgress from './Pages/MyProgress/Progress';
+import Reports from './Pages/Reports/Reports';
 
 import Topbar from "./Pages/Global/Topbar";
 import Sidebar from "./Pages/Global/Sidebar";
 import { ColorModeContext, useMode } from "./context/theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
+
 function App() {
   const [theme, colorMode] = useMode();
-  const {isAuthenticated} = useAuth();
+  const { isAuthenticated, User } = useAuth();
+
+  const allRoutes = [
+    { path: '/dashboard', element: <Dashboard /> },
+    { path: '/', element: <Dashboard /> },
+    { path: '/users', element: <Users /> },
+    { path: '/adduser', element: <CreateUser /> },
+    { path: '/reports', element: <Reports /> },
+    { path: '/schedule', element: <Schedule /> },
+    { path: '/trainings', element: <Trainings /> },
+    { path: '/calendar', element: <Calendar /> },   
+    { path: '/training-details/:coeId?', element: <TrainingDetails /> },
+    { path: '/userprofile/:userId?', element: <UserProfile /> },
+    { path: '/my-progress', element: <MyProgress /> },
+    { path: '/assesment-scores', element: <AssesmentScore /> },
+    { path: '/authstatus', element: <AuthStatus /> },
+    // Add other admin routes here
+  ];
+
+  const userRoutes = [
+    { path: '/dashboard', element: <Dashboard /> },
+    { path: '/trainings', element: <Trainings /> },
+    { path: '/calendar', element: <Calendar /> },   
+    { path: '/training-details/:coeId?', element: <TrainingDetails /> },
+    { path: '/userprofile/:userId?', element: <UserProfile /> },
+    { path: '/my-progress', element: <MyProgress /> },
+    { path: '/assesment-scores', element: <AssesmentScore /> },
+    { path: '/', element: <Dashboard /> }
+    
+    // Add other user routes here
+  ];
+
+  const publicRoutes = [
+    { path: '/', element: <Login /> },
+    { path: '/forgetPassword', element: <ForgetPassword /> },
+    { path: '/resetPassword/:id/:token', element: <ResetPassword /> },
+  ];
+
+  const routes = isAuthenticated ? 
+    (User && (User.role === 'Intern' || User.role === 'Employee' ) ? userRoutes : allRoutes) 
+    : publicRoutes;
 
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          {isAuthenticated && <Sidebar />} {/* Sidebar rendered only if user is authenticated */}
+          {isAuthenticated && <Sidebar />}
           <main className="content">
-            {isAuthenticated && <Topbar />} {/* Topbar rendered only if user is authenticated */}
+            {isAuthenticated && <Topbar />}
             <Routes>
-              {isAuthenticated ? ( // Private routes for authenticated users
-                <>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/users" element={<Users />} />
-                  <Route path="/adduser" element={<CreateUser />} />
-                  <Route path="/trainings" element={<Trainings />} />
-                  <Route path="/calendar" element={<Calendar />} />
-                  <Route path="/schedule" element={<Schedule />} />
-                  <Route path="/training-details/:coeId?" element={<TrainingDetails />} />
-                  <Route path="/userprofile/:userId" element={<UserProfile />} />
-                  <Route path="/authstatus" element={<AuthStatus />} />
-                  <Route path="/my-progress" element={<MyProgress />} />
-                  <Route path="/assesment-scores" element={<AssesmentScore />} />
-                  <Route path="/" element={<Navigate to="/dashboard" />} /> {/* Redirect authenticated user to dashboard */}
-                </>
-              ) : ( // Public routes for unauthenticated users
-                <>
-                  <Route path="/" element={<Login />} />
-                  <Route path="/forgetPassword" element={<ForgetPassword />} />
-                  <Route path="/resetPassword/:id/:token" element={<ResetPassword />} />
-                </>
-              )}
+              {routes && routes.map(route => (
+                <Route key={route.path} path={route.path} element={route.element} />
+              ))}
+              
             </Routes>
           </main>
         </div>

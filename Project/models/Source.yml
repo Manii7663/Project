@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: TrainingManagement
+    database: TrainingProject
+    schema: PROJECT
+    tables:
+      - name: assessmentscores
+        description: "Table containing assessment scores"
+      - name: batches
+        description: "Table containing batch information"
+      - name: coes
+        description: "Table containing information about Centers of Excellence"
+      - name: trainingprograms
+        description: "Table containing information about training programs"
+      - name: trainingsessions
+        description: "Table containing information about training sessions"
+      - name: users
+        description: "Table containing user information"
