@@ -23,7 +23,7 @@ user_information AS (
         u.NAME AS traineeName
     FROM
         assessment_scores_raw a
-    LEFT JOIN
+    JOIN
         {{ ref('stg_users') }} u ON a.traineeId = u.ID
 )
 
@@ -38,5 +38,5 @@ SELECT
     t.coe
 FROM
     user_information a
-LEFT JOIN
+    right JOIN
     training_session_info t ON a.sessionId = t.sessionId

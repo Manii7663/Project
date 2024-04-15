@@ -1,4 +1,3 @@
--- models/user_kpi_with_assessment_count.sql
 
 -- Average Score per User
 WITH user_Assessment AS (
@@ -12,7 +11,7 @@ WITH user_Assessment AS (
     FROM
         {{ ref('int_assessment_scores') }}
     GROUP BY
-        traineeName,traineeId
+        traineeId,traineeName
 ),
  trainings_per_user AS (
     SELECT
@@ -31,7 +30,8 @@ Select traineeName,
         max_score,
         min_score,
         assessment_count as completed_assessment,
+        tps.total_sessions,
         tps.total_sessions-assessment_count as pending_assessment
         from user_Assessment ua
-outer join trainings_per_user tps
+ join trainings_per_user tps
 on ua.traineeId=tps.traineeId

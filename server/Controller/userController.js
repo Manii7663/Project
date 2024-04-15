@@ -43,7 +43,7 @@ exports.passwordMail = async (req, res) => {
   const { userEmail, name } = req.body;
 
   // Generate a random dummy password (replace this with your actual dummy password generation logic)
-  const dummyPassword = "dummy"; // Implement your logic to generate a random dummy password
+  const dummyPassword = "hello"; // Implement your logic to generate a random dummy password
 
   let config = {
     service: "gmail",

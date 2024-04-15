@@ -8,6 +8,7 @@ const {createTrainingProgram,createCOE,getTrainingPrograms,getCOE}=require('../C
 const {createTrainingSession,getTrainingSession,createMultipleSession} =require('../Controller/sessionController')
 const {getEmployeeIds} = require("../Controller/empController")
 const {createAssessmentScore,getAssessmentScores} = require('../Controller/assesmentController')
+const {runMigrationScript} = require("../Controller/scriptController")
 
 // POST request to handle user login
 router.post('/logIn', logIn);
@@ -39,5 +40,7 @@ router.get('/get-emp-ids',getEmployeeIds)
 
 router.post('/create-ass-score',createAssessmentScore);
 router.get('/get-ass-scores',getAssessmentScores);
+
+router.post('/run-migration-script', runMigrationScript);
 
 module.exports = router;

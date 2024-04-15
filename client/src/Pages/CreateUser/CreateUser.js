@@ -69,7 +69,7 @@ const CreateUser = () => {
       .then(async (result) => {
         console.log("User created successfully:", result.data);
         window.alert("User created successfully");
-        navigate("/");
+        navigate("/users");
 
         const sendEmailResult = await axios.post(
           "http://localhost:3001/send-email",

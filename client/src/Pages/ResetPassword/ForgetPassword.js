@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
@@ -13,9 +13,10 @@ const ForgetPassword = () => {
         e.preventDefault()
         axios.post('http://localhost:3001/forget-password', { email })
             .then(res => {
-                if (res.data.Status === "Success") {
-                    navigate('/login')
-
+                
+                if (res.data.msg) {
+                    alert(res.data.msg)                   
+                    navigate('/')
                 }
             }).catch(err => console.log(err))
     }

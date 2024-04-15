@@ -32,6 +32,7 @@ exports.resetPassword= async (req, res) => {
 
 exports.forgetPassword = async (req, res) => {
     const { email } = req.body;
+    console.log(email)
     User.findOne({ email: email })
         .then(user => {
             if (!user) {
