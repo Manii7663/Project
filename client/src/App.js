@@ -32,7 +32,7 @@ function App() {
   const allRoutes = [
     { path: '/dashboard', element: <Dashboard /> },
     { path: '/', element: <Dashboard /> },
-    { path: '/users', element: <Users /> },
+    { path: '/users/:search?', element: <Users /> },
     { path: '/adduser', element: <CreateUser /> },
     { path: '/reports', element: <Reports /> },
     { path: '/schedule', element: <Schedule /> },
