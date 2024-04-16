@@ -18,13 +18,13 @@ app.use(cors({
 // Mount the authentication routes
 app.use('/', authRoutes);
 
-// axios.post('http://localhost:3001/run-migration-script')
-//   .then(response => {
-//     console.log(response.data.message);
-//   })
-//   .catch(error => {
-//     console.error('Error executing migration script:', error);
-//   });
+axios.post('http://localhost:3001/run-migration-script')
+  .then(response => {
+    console.log(response.data.message);
+  })
+  .catch(error => {
+    console.error('Error executing migration script:', error);
+  });
 
 const PORT = process.env.PORT || 3001
 

@@ -39,7 +39,7 @@ SELECT
     cs.total_days,
     cast(cs.total_hours / cs.total_sessions as INTEGER) AS average_hours_per_session,
     cast(cs.total_days / cs.total_sessions as INTEGER) AS average_days_per_session,
-    cak.assessment_count AS assessment_count_assessment,
+    cak.assessment_count AS assessment_count,
     cak.avg_score AS avg_score_assessment,
     cak.max_score AS max_score_assessment,
     cak.min_score AS min_score_assessment

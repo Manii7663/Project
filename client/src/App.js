@@ -19,8 +19,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MyProgress from './Pages/MyProgress/Progress';
 import Reports from './Pages/Reports/Reports';
 
-import Topbar from "./Pages/Global/Topbar";
-import Sidebar from "./Pages/Global/Sidebar";
+import Topbar from "./Components/Topbar";
+import Sidebar from "./Components/Sidebar";
 import { ColorModeContext, useMode } from "./context/theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 

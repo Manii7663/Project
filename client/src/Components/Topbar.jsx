@@ -1,6 +1,6 @@
 import { Box, IconButton, useTheme,Button, Dialog, DialogTitle, DialogActions } from "@mui/material";
 import { useContext,useState } from "react";
-import { ColorModeContext, tokens } from "../../context/theme";
+import { ColorModeContext, tokens } from "../context/theme";
 import InputBase from "@mui/material/InputBase";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -10,7 +10,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Link,useNavigate } from 'react-router-dom';
-import {useAuth} from "../../context/authContext"
+import {useAuth} from "../context/authContext"
 
 const Topbar = () => {
   const theme = useTheme();

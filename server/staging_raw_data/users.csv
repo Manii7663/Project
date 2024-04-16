@@ -96,7 +96,7 @@ _id,id,name,email,role,Designation,password,batchId,__v,createdAt
 660feb0a6f3688dd93b442f1,INT087,Laura Carter,angelrobertson@example.net,Intern,Trainee Engineer,R_@4EC$s,1.0,,
 660feb0a6f3688dd93b442f6,INT092,Vanessa Washington,gardnercory@example.org,Intern,Trainee Engineer,^f4ERDbQ,1.0,,
 660feb0a6f3688dd93b442fb,INT097,Joshua Hayes,wintersoscar@example.net,Intern,Trainee Engineer,@9_zsBKm,1.0,,
-661224230ccdccd17b1e084c,INT200,Manisha Bhandari,manishabhandari@jmangroup.com,Intern,Trainee Engineer,hello,1.0,0.0,
+661224230ccdccd17b1e084c,INT200,Manisha Bhandari,manishabhandari@jmangroup.com,Intern,Trainee Engineer,1234,1.0,0.0,
 6613726b575d5b967ace46b4,INT800,isita,ishita@gmail.com,Intern,Trainee Engineer,hello,1.0,0.0,
 661565a670824c5e5265b40c,EMP500,Manisha Bhandari,manishabhandari119@gmail.com,Admin,Manager,hello,,0.0,
 66053fefd7c487757f97efbc,EMP001,Tyler Campbell,natasha72@example.net,Employee,Developer,(O(#9Pbi,,,2017-07-11 14:48:27
@@ -166,3 +166,5 @@ _id,id,name,email,role,Designation,password,batchId,__v,createdAt
 660feb0a6f3688dd93b443c1,EMP065,Amy Weaver,gking@example.com,Employee,Manager,SN&94GyY,,,2019-12-12 13:29:01
 661a39796c34f5b8c3f9498c,INT001,Renee Bai,rileypatrick@example.net,Intern,Trainee Engineer,OP%z5Me+,1.0,0.0,
 661a3bb68d637eb07fa2ff73,INT003,Amanda Scott,john32@example.net,Intern,Trainee Engineer,(3bO4gfw,1.0,0.0,
+661cef8df01d0e5405b8d3df,Int900,kaustubh gupta,kaustubhgupta@jmangroup.com,Intern,Data Analyst,hello,,0.0,
+661cf005f01d0e5405b8d3e8,EMP900,kaustubh gupta,kaustubhgupta9860@gmail.com,Employee,Manager,hello,,0.0,
