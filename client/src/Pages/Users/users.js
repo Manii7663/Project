@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { Box, Typography, useTheme, Button } from "@mui/material";
+import { Box, Typography, useTheme, Button, Dialog, DialogTitle, DialogContent,DialogActions, FormControl,InputLabel,MenuItem,Select,TextField } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../context/theme";
-import { useNavigate, useParams, useLocation } from "react-router-dom";
-// import { mockDataTeam } from "../../data/mockData";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import EditOutlined from "@mui/icons-material/EditOutlined";
 import DeleteOutline from "@mui/icons-material/DeleteOutline";
@@ -22,10 +21,38 @@ const Users = () => {
   const searchParams = new URLSearchParams(location.search);
   const search = searchParams.get("search");
 
+  const [currentUser,setCurrentUser]=useState(null)
+  const [openDialog, setOpenDialog] = useState(false);
+  const [trainings,setTrainings]= useState([])
+  const [selectedTraining,setSeletedTraining]=useState("")
+  const [formData, setFormData] = useState({
+    Startdatetime: '',
+    Enddatetime: '',
+    venue: '',
+    trainee: '',
+    programId: '',
+    programName: ''
 
-  // const { search } = useParams();
-  // console.log("searching ", search);
+  });
 
+
+  useEffect(() => {
+    const fetchTrainings = async () => {
+      try {
+        const response = await fetch(`http://localhost:3001/get-training`);
+        if (response.ok) {
+          const data = await response.json();
+          setTrainings(data); // Set the fetched data directly to the state
+        } else {
+          console.error('Failed to fetch trainings data');
+        }
+      } catch (error) {
+        console.error('Error fetching trainings data:', error);
+      }
+    };
+
+    fetchTrainings();
+  }, []);
   useEffect(() => {
     // Fetch users from the backend API
     fetch("http://localhost:3001/get-users")
@@ -90,8 +117,13 @@ const Users = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          m="10px 0 0 0"
+          m="10px 0px 0px 5px"
         >
+          <Button
+            startIcon={<AddCircleOutline />}
+            onClick={() => handleAddSessionClick(params)}
+            sx={{ color: "#1976d2" }}
+          />
           <Button
             startIcon={<EditOutlined />}
             onClick={() => handleEditClick(params)}
@@ -111,6 +143,12 @@ const Users = () => {
   const handleAddNewMember = () => {
     // Redirect to the page for adding a new member
     navigate("/adduser");
+  };
+
+  const handleAddSessionClick = (params) => {
+    const _id = params.row._id;
+    setCurrentUser(_id)
+    setOpenDialog(!openDialog)
   };
 
   const handleEditClick = (params) => {
@@ -146,6 +184,54 @@ const Users = () => {
       deleteUser(_id);
     }
   };
+
+  const handleCloseDialog= () => {
+    setOpenDialog(!openDialog)
+  };
+
+  const handleChange = (e) => {
+    const [name,value]=e.target;
+
+    const currentTraining=trainings.findone(training => training._id === value)
+    setSeletedTraining(value)
+    setFormData({
+      ...formData,
+      programId: value,
+      programName: currentTraining.programName,
+      trainers: currentTraining.trainerId
+    })
+
+
+  }
+
+  const handleAddNewSession = async () => {
+    setOpenDialog(!openDialog)
+
+    try {
+      const response= await fetch('http://localhost:3001/create-training-session',
+        {
+          method:'Post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            formData: formData,
+            trainee:currentUser
+          }),
+        });
+
+        if(!response.ok)
+          {
+            throw new Error("Failed to create session")
+          }
+
+        console.log('Sessions created successfully')
+        
+    } catch (error) {
+      console.log("Error: ",error);
+    }
+
+  }
 
   return (
     <Box m="20px 10px">
@@ -207,6 +293,76 @@ const Users = () => {
           rowsPerPageOptions={[5, 10, 20]}
         />
       </Box>
+      <Dialog open={openDialog} close={handleCloseDialog}>
+        <DialogTitle>Add a Session</DialogTitle>
+        <DialogContent>
+          <Box
+          display="grid"
+          gap="30px"
+          gridTemplateColumns="repeat(4, minmax(0, 1fr))">
+          <FormControl fullWidth sx={{ gridColumn: "span 3" }} required>
+              <InputLabel id="training-select-label">Select Training</InputLabel>
+              <Select
+                labelId="training-select-label"
+                id="training-select"
+                name="Training"
+                value={selectedTraining}
+                onChange={handleChange}
+              >
+                {trainings.map(training => (
+                  <MenuItem key={training._id} value={training._id}>
+                    {training.programName}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <TextField
+              id="Venue"
+              name="venue"
+              label="Venue"
+              type="text"
+              fullWidth
+              value={formData.venue}
+              onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
+            />
+
+            <TextField
+              id="Startdatetime"
+              name="Startdatetime"
+              label="Start Date & Time"
+              type="datetime-local"
+              fullWidth
+              InputLabelProps={{
+                shrink: true
+              }}
+              sx={{ gridColumn: "span 2" }}
+              required
+              value={formData.Startdatetime}
+              onChange={(e) => setFormData({ ...formData, Startdatetime: e.target.value })}
+            />
+
+            <TextField
+              id="Enddatetime"
+              name="Enddatetime"
+              label="End Date & Time"
+              type="datetime-local"
+              fullWidth
+              InputLabelProps={{
+                shrink: true
+              }}
+              sx={{ gridColumn: "span 2" }}
+              required
+              value={formData.Enddatetime}
+              onChange={(e) => setFormData({ ...formData, Enddatetime: e.target.value })}
+            />
+
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color="primary">Cancel</Button>
+          <Button onClick={handleAddNewSession} color="primary">Add</Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };

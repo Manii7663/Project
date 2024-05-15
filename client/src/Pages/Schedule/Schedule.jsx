@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
 import { formatDate } from "@fullcalendar/core";
-import interactionPlugin from "@fullcalendar/interaction";
 import { AddCircleOutline } from "@mui/icons-material";
-import listPlugin from "@fullcalendar/list";
 import {
   Box,
   List,
@@ -38,8 +33,6 @@ const Schedule = () => {
   const colors = tokens(theme.palette.mode);
   const [currentEvents, setCurrentEvents] = useState([]);
 
-  const [trainers, setTrainers] = useState([]);
-
   const [Session, setSession] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null); // State to hold selected event
   const [isMobile, setIsMobile] = useState(false);
@@ -60,7 +53,6 @@ const Schedule = () => {
     programName: ''
 
   });
-
 
   useEffect(() => {
     const fetchSession = async () => {
@@ -146,16 +138,12 @@ const Schedule = () => {
     }
   };
 
-
-
   const handleAddEventForm = () => {
     setAddEventForm(!AddEventForm);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log("In handle change")
-
     const currentTraining = trainings.find(training => training._id === value)
     setSelectedTraining(value)
     console.log(selectedTraining)
@@ -170,13 +158,12 @@ const Schedule = () => {
 
 
   const handleAddNewEvent = async () => {
-    console.log(formData)
+    handleAddEventForm()
 
     try {
       // Fetch users with the selected trainee role
       const traineeRole = formData.trainee;
       const traineeUsers = await fetchUsersByRole(traineeRole);
-      console.log(traineeUsers)
 
       // Call API to create multiple sessions
       const response = await fetch('http://localhost:3001/create-multiple-session', {
@@ -196,8 +183,10 @@ const Schedule = () => {
 
       // Reset form state or handle success as needed
       console.log('Sessions created successfully');
+      window.location.reload();
     } catch (error) {
       // Handle error...
+      
       console.error('Error:', error);
     }
 
@@ -226,7 +215,7 @@ const Schedule = () => {
 
       <Box display="flex" justifyContent="space-between">
         {/* CALENDAR SIDEBAR */}
-        {!isMobile && currentEvents.length != 0 && (
+        {!isMobile && currentEvents.length !== 0 && (
           <Box
             flex="1 1 20%"
             backgroundColor={colors.primary[400]}
